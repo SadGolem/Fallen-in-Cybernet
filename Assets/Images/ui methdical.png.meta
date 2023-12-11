@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e63664562a69e747b9a08fecccb78e3
+guid: 3a15b16fc3ffc4a47b35ca89c9bd9f5b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,7 +127,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ui methdical_0
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 320
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 56, y: 68, z: 64, w: 52}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4719f7a29162844eac6fd5eff1d78dc
+      internalID: -1282888871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui methdical_1
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 320
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 56, y: 68, z: 64, w: 52}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a42fd0f0c833145b077ffbfe0969ef
+      internalID: 1663287215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui methdical_2
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 64
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 56, y: 78, z: 68, w: 44}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f6dbacca2a36fa4ca096dc662f571ee
+      internalID: 858544820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui methdical_3
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 84
+        width: 136
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 80, y: 38, z: 48, w: 32}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2b269fa6c42b34b94480260962c567
+      internalID: -1267655952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +222,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ui methdical_2: 858544820
+      ui methdical_0: -1282888871
+      ui methdical_1: 1663287215
+      ui methdical_3: -1267655952
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

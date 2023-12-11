@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour
+public class GridCreater : MonoBehaviour
 {
     public GameObject cellPrefab; // префаб дл€ создани€ €чейки
     public Sprite normalSprite; // обычна€ картинка дл€ €чейки
@@ -10,6 +10,14 @@ public class GridManager : MonoBehaviour
 
     private GameObject[,] grid; // двумерный массив дл€ хранени€ €чеек
     private GameObject selectedCell; // текуща€ выбранна€ €чейка
+
+
+    public static GridCreater instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void CreateGrid()
     {
@@ -26,12 +34,14 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public class NewBehaviourScript : MonoBehaviour
+    public class GridController : MonoBehaviour
     {
         // Start is called before the first frame update
+        private GridCreater gridCreater;
         void Start()
         {
-            CreateGrid();
+            gridCreater = GridCreater.instance;
+            gridCreater.CreateGrid();
         }
 
         // Update is called once per frame
@@ -45,22 +55,24 @@ public class GridManager : MonoBehaviour
                 {
                     GameObject clickedCell = hit.collider.gameObject;
 
-                    if (clickedCell == selectedCell)
+                    if (clickedCell == gridCreater.selectedCell)
                     {
                         // ≈сли кликнута та же €чейка, снимаем выделение
-                        selectedCell.GetComponent<SpriteRenderer>().sprite = normalSprite;
-                        selectedCell = null;
+                        gridCreater.selectedCell.GetComponent<SpriteRenderer>().sprite = gridCreater.normalSprite;
+                        gridCreater.selectedCell = null;
                     }
                     else
                     {
                         // —нимаем выделение с предыдущей €чейки (если есть)
-                        if (selectedCell != null)
-                            selectedCell.GetComponent<SpriteRenderer>().sprite = normalSprite;
+                        if (gridCreater.selectedCell != null)
+                            gridCreater.selectedCell.GetComponent<SpriteRenderer>().sprite = gridCreater.normalSprite;
 
                         // ¬ыдел€ем новую €чейку
-                        clickedCell.GetComponent<SpriteRenderer>().sprite = highlightSprite;
-                        selectedCell = clickedCell;
+                        clickedCell.GetComponent<SpriteRenderer>().sprite = gridCreater.highlightSprite;
+                        gridCreater.selectedCell = clickedCell;
                     }
                 }
+            }
+        }
     }
 }
