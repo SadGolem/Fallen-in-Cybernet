@@ -11,7 +11,6 @@ public class GridCreater : MonoBehaviour
     private GameObject[,] grid; // двумерный массив дл€ хранени€ €чеек
     private GameObject selectedCell; // текуща€ выбранна€ €чейка
 
-
     public static GridCreater instance;
 
     private void Awake()
