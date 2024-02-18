@@ -13,12 +13,13 @@ public class DialogController : MonoBehaviour
     [SerializeField] private Image iconImage;
     public Button dialogSkipButton;
     public event Action dialogSkipButtonEvent;
-
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     public TextMeshProUGUI sentencesText;
     public TextMeshProUGUI nameText;
 
-    private AudioClip sound;
+    
     private int IndexDialog = 0;
 
     private bool isTyping;
@@ -31,7 +32,7 @@ public class DialogController : MonoBehaviour
 
     public void SkipDialog()
     {
-        if (IndexDialog != characters.Count)
+        if (IndexDialog != characters.Count - 1)
         {
             if (isTyping)
             {
@@ -47,21 +48,25 @@ public class DialogController : MonoBehaviour
         }
     }
 
-    private void SetCharacter(string name, Sprite icon)
+    private void SetCharacter(string name, Sprite icon/*, AudioClip audioClip*/)
     {
         nameText.text = name;
         iconImage.sprite = icon;
+        /*this.audioClip = audioClip;*/
     }
 
     private void WriteDialog()
     {
+        if (IndexDialog > characters.Count - 1)
+            return;
+
         TextDialog(characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog],
-            characters[IndexDialog].nameCharacter, characters[IndexDialog].iconImage);
+            characters[IndexDialog].nameCharacter, characters[IndexDialog].iconImage, characters[IndexDialog].sound);
     }
 
-    private void TextDialog(string text, string name, Sprite image)
+    private void TextDialog(string text, string name, Sprite image, AudioClip sound)
     {
-        SetCharacter(name, image);
+        SetCharacter(name, image/*, sound*/);
         StartCoroutine(TypeSentence(text, sentencesText, sound));
     }
 
@@ -72,6 +77,7 @@ public class DialogController : MonoBehaviour
         {
             isTyping = true;
             sentencesText.text += letter;
+            audioSource.PlayOneShot(sound);
             /*SoundManager.instance.PlaySound(sound);*/ //нада сделать звук
             yield return new WaitForSeconds(0.03f);
         }
