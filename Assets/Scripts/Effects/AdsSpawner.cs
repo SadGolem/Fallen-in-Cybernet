@@ -8,6 +8,7 @@ public class AdsSpawner : MonoBehaviour
     public List<Sprite> adsToSpawn;
     public GameObject prefab;
     public Canvas canvas;
+    [SerializeField] private GameObject ads;
 
     private Ad ad;
     private void Start()
@@ -37,7 +38,7 @@ public class AdsSpawner : MonoBehaviour
 
     private GameObject SetPictureToPrefabWindow()
     {
-        GameObject objectAd = Instantiate(prefab, Vector3.zero, Quaternion.identity, canvas.transform);
+        GameObject objectAd = Instantiate(prefab, Vector3.zero, Quaternion.identity, ads.transform);
         Image adImage = objectAd.GetComponentInChildren<Image>();
         adImage.sprite = ChooseAds();
         /*images.Add(adImage);*/

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-/*    // Start is called before the first frame update
+    /*// Start is called before the first frame update
     private GridCreater gridCreater;
     private int attemptCounter = 0; // Счетчик попыток
     private int selectedColumnIndex = 0; // Инициализируем выбранный индекс столбца
@@ -43,7 +43,7 @@ public class GridController : MonoBehaviour
             // Если это крайний левый столбец, не делать ничего
             return;
         }
-        
+
         // Перестановка столбца влево
         for (int i = 0; i < grid.GetLength(0); i++)
         {

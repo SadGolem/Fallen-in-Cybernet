@@ -10,4 +10,6 @@ public class Ad : MonoBehaviour
         get { return _image; }
         set { _image = value; }
     }
+
+
 }

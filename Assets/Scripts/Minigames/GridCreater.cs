@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GridCreater : MonoBehaviour
 {
-/*    public GameObject cellPrefab; // префаб для создания ячейки \/ НЕОБХОДИМО ПРИВЯЗАТЬ TextMesh
+   /* public GameObject cellPrefab; // префаб для создания ячейки \/ НЕОБХОДИМО ПРИВЯЗАТЬ TextMesh
     public Sprite normalSprite; // обычная картинка для ячейки
 
     private string gridContent = ""; // Строка из 25 символов \/ ВНЕСТИ СЮДА ЗАШИФРОВАННУЮ СТРОКУ

@@ -10,6 +10,4 @@ public class Character : MonoBehaviour
     [SerializeField] public Sprite iconImage;
     [SerializeField] public AudioClip sound;
     public int indexDialog = 0;
-
-
 }
