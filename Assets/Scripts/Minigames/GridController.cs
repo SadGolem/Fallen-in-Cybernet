@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-/*    // Start is called before the first frame update
+    // Start is called before the first frame update
     private GridCreater gridCreater;
     private int attemptCounter = 0; // Счетчик попыток
     private int selectedColumnIndex = 0; // Инициализируем выбранный индекс столбца
     private bool checkButtonPressed = false; // Состояние кнопки "Проверить"
     private GameObject[,] grid;
+
     void Start()
     {
         gridCreater = GridCreater.instance;
@@ -80,14 +81,14 @@ public class GridController : MonoBehaviour
 
     void CheckSolution() // В ПРОЦЕССЕ ДОРАБОТКИ
     {
-        string correctSolutionString = ""; // Строка ответ (без пробелов) \/ СТРОГО 25 СИМВОЛОВ
+        string correctSolutionString = "ЗНАНИЕ_ЗНАНИЕ_ЗНАНИЕ_ДАЁТ"; // Строка ответ (без пробелов) \/ СТРОГО 25 СИМВОЛОВ
         string result = BuildResultString();
         if (result == correctSolutionString)
         {
             if (attemptCounter == 0)
-                PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
+                gridCreater.PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
             else
-                CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
+                gridCreater.CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
         }
         else
         {
@@ -96,22 +97,36 @@ public class GridController : MonoBehaviour
         }
     }
 
-    string BuildResultString() // В ПРОЦЕССЕ ДОРАБОТКИ
+    string BuildResultString() // Упрощённый вариант
     {
         string result = "";
         for (int j = 0; j < gridCreater.grid.GetLength(1); j++) // Итерация по столбцам
         {
             for (int i = 0; i < gridCreater.grid.GetLength(0); i++) // Итерация по строкам
             {
-                // Здесь предполагается, что у каждой ячейки есть компонент, содержащий символ этой ячейки.
-                Cell cellComponent = gridCreater.grid[i, j].GetComponent<Cell>();
-                if (cellComponent != null)
-                {
-                    // Предполагается, что у компонента Cell есть метод ToString() или свойство для получения символа
-                    result += cellComponent.ToString();
-                }
+                // Напрямую обращаемся к значению в гриде
+                result += gridCreater.grid[i, j];
             }
         }
         return result;
-    }*/
+    }
 }
+
+/*string BuildResultString() // ----- ЗАМЕНЁН/ВП (возможно пригодится) -----
+ {
+     string result = "";
+     for (int j = 0; j < gridCreater.grid.GetLength(1); j++) // Итерация по столбцам
+     {
+         for (int i = 0; i < gridCreater.grid.GetLength(0); i++) // Итерация по строкам
+         {
+             // Здесь предполагается, что у каждой ячейки есть компонент, содержащий символ этой ячейки.
+             Cell cellComponent = gridCreater.grid[i, j].GetComponent<Cell>();
+             if (cellComponent != null)
+             {
+                 // Предполагается, что у компонента Cell есть метод ToString() или свойство для получения символа
+                 result += cellComponent.ToString();
+             }
+         }
+     }
+     return result;
+ }*/
