@@ -63,22 +63,22 @@ public class DialogController : MonoBehaviour
             characters[IndexDialog].nameCharacter, characters[IndexDialog].iconImage, characters[IndexDialog].sound);
     }
 
-    private void TextDialog(string text, string name, Sprite image, AudioClip sound)
+    private void TextDialog(string text, string name, Sprite image, List<AudioClip> sound)
     {
         SetCharacter(name, image/*, sound*/);
-        StartCoroutine(TypeSentence(text, sentencesText, sound));
+        StartCoroutine(TypeSentence(text, sentencesText));
     }
 
-    private IEnumerator TypeSentence(string sentence, TextMeshProUGUI texBox, AudioClip sound)
+    private IEnumerator TypeSentence(string sentence, TextMeshProUGUI texBox)
     {
         sentencesText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
             isTyping = true;
             sentencesText.text += letter;
-            audioSource.PlayOneShot(sound);
-            /*SoundManager.instance.PlaySound(sound);*/ //нада сделать звук
-            yield return new WaitForSeconds(0.03f);
+            if (letter != ' ')
+                audioSource.PlayOneShot(RandomElementsSelector<AudioClip>.SelectRandomElement(characters[IndexDialog].sound)); //нада сделать звук
+            yield return new WaitForSeconds(0.15f);
         }
         isTyping = false;
     }

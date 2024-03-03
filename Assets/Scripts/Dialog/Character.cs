@@ -8,6 +8,6 @@ public class Character : MonoBehaviour
 
     [SerializeField] public string nameCharacter;
     [SerializeField] public Sprite iconImage;
-    [SerializeField] public AudioClip sound;
+    [SerializeField] public List<AudioClip> sound;
     public int indexDialog = 0;
 }
