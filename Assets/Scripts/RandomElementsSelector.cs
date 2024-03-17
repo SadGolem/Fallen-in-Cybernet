@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public static partial class RandomElementsSelector<T>
 {
@@ -52,21 +51,33 @@ public static partial class RandomElementsSelector<T, A>
         return list[randomIndex];
     }
 
-    public static List<(T,A)> SelectRandomThreeElement(List<(T,A)> list)
+    public static List<(T, A)> SelectRandomFourElement(List<(T, A)> list)
     {
         if (list == null || list.Count == 0)
         {
-            return default(List<(T,A)>);
+            return new List<(T, A)>();
         }
 
-        int randomIndex = random.Next(0, list.Count);
-        int randomIndex2 = random.Next(0, list.Count);
-        int randomIndex3 = random.Next(0, list.Count);
-
+        Random random = new Random();
         var result = new List<(T, A)>();
-        result.Add(list[randomIndex]);
-        result.Add(list[randomIndex2]);
-        result.Add(list[randomIndex3]);
+
+        // Создаем список уникальных случайных индексов
+        var randomIndices = new List<int>();
+        while (randomIndices.Count < 4)
+        {
+            int randomIndex = random.Next(0, list.Count);
+            if (!randomIndices.Contains(randomIndex))
+            {
+                randomIndices.Add(randomIndex);
+            }
+        }
+
+        // Добавляем соответствующие элементы к результату
+        foreach (var index in randomIndices)
+        {
+            result.Add(list[index]);
+        }
+
         return result;
     }
 
