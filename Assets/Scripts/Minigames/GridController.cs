@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridController : MonoBehaviour
 {
@@ -8,36 +9,36 @@ public class GridController : MonoBehaviour
     private int selectedColumnIndex = 0; // Инициализируем выбранный индекс столбца
     private bool checkButtonPressed = false; // Состояние кнопки "Проверить"
     private GameObject[,] grid;
+    public static GridController instance;
+    public Cell currentCell;
+    public GameObject gridLayout;
+    Transform[] layoutGroup;
+
+    void GetLayout()
+    {
+        layoutGroup = new Transform[gridLayout.transform.childCount];
+        for (int i = 0; i < gridLayout.transform.childCount; i++)
+        {
+            layoutGroup[i] = gridLayout.transform.GetChild(i);
+        }
+    }
+
+    private void Awake()
+    {
+        instance = this; 
+    }
+
     void Start()
     {
         gridCreater = GridCreater.instance;
-        gridCreater.CreateGrid();
         grid = gridCreater.grid;
+        GetLayout();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void MoveColumnLeft()
     {
-        // Обработка ввода для перестановки столбцов
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            MoveColumnLeft(selectedColumnIndex);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            MoveColumnRight(selectedColumnIndex);
-        }
+        int columnIndex = currentCell.position.Item2;
 
-        // Обработка нажатия кнопки "Проверить"
-        if (checkButtonPressed)
-        {
-            CheckSolution(); // Проверить состояние кнопки
-            checkButtonPressed = false; // Сброс состояния кнопки
-        }
-    }
-
-    void MoveColumnLeft(int columnIndex)
-    {
         if (columnIndex <= 0)
         {
             // Если это крайний левый столбец, не делать ничего
@@ -45,36 +46,105 @@ public class GridController : MonoBehaviour
         }
 
         // Перестановка столбца влево
-        for (int i = 0; i < grid.GetLength(0); i++)
+        for (int i = 0; i < gridLayout.transform.childCount / grid.GetLength(1); i++)
         {
-            GameObject temp = grid[i, columnIndex]; // Сохраняем текущий столбец
-            grid[i, columnIndex] = grid[i, columnIndex - 1]; // Перемещаем левый столбец в текущую позицию
-            grid[i, columnIndex - 1] = temp; // Помещаем сохраненный столбец в левую позицию
+            // Получаем индексы для обмена
+            int currentIndex = i * grid.GetLength(1) + columnIndex;
+            int leftIndex = i * grid.GetLength(1) + columnIndex - 1;
 
-            // Перемещаем GameObjects на сцене
-            grid[i, columnIndex].transform.position = new Vector2(columnIndex, i);
-            grid[i, columnIndex - 1].transform.position = new Vector2(columnIndex - 1, i);
+            // Запоминаем левую позицию
+            Vector3 leftPosition = layoutGroup[leftIndex].position;
+
+            // Меняем позиции объектов местами
+            layoutGroup[leftIndex].position = layoutGroup[currentIndex].position;
+            layoutGroup[currentIndex].position = leftPosition;
+
+            // Опционально: для обмена местами объектов в иерархии (если это требуется)
+            layoutGroup[leftIndex].SetSiblingIndex(currentIndex);
+            layoutGroup[currentIndex].SetSiblingIndex(leftIndex);
         }
+
+        // Обновляем массив layoutGroup, если порядок объектов в иерархии изменился
+        GetLayout();
     }
-    void MoveColumnRight(int columnIndex)
+
+    public void MoveColumnRight()
     {
-        int maxColumnIndex = grid.GetLength(1) - 1; // Получаем максимально возможный индекс столбца
-        if (columnIndex >= maxColumnIndex)
+        int columnIndex = currentCell.position.Item2;// нужно корректно получить текущий индекс столбца из вашей логики
+
+    // Проверка, что это не крайний правый столбец
+    if (columnIndex >= grid.GetLength(1) - 1)
         {
             // Если это крайний правый столбец, не делать ничего
             return;
         }
 
         // Перестановка столбца вправо
-        for (int i = 0; i < grid.GetLength(0); i++)
+        for (int i = 0; i < gridLayout.transform.childCount / grid.GetLength(1); i++)
         {
-            GameObject temp = grid[i, columnIndex]; // Сохраняем текущий столбец
-            grid[i, columnIndex] = grid[i, columnIndex + 1]; // Перемещаем правый столбец в текущую позицию
-            grid[i, columnIndex + 1] = temp; // Помещаем сохраненный столбец в правую позицию
+            // Получаем индексы для обмена
+            int currentIndex = i * grid.GetLength(1) + columnIndex;
+            int rightIndex = i * grid.GetLength(1) + columnIndex + 1;
+
+            // Запоминаем правую позицию
+            Vector3 rightPosition = layoutGroup[rightIndex].position;
+
+            // Меняем позиции объектов местами
+            layoutGroup[rightIndex].position = layoutGroup[currentIndex].position;
+            layoutGroup[currentIndex].position = rightPosition;
+
+            // Опционально: для обмена местами объектов в иерархии
+            layoutGroup[rightIndex].SetSiblingIndex(currentIndex);
+            layoutGroup[currentIndex].SetSiblingIndex(rightIndex);
+        }
+
+        // Обновляем массив layoutGroup после изменения порядка объектов
+        GetLayout();
+    }
+
+    public void MoveRowDown()
+    {
+        int rowIndex = currentCell.position.Item1;
+
+        if (rowIndex <= 0)
+        {
+            // Если это нижняя строка, не делаем ничего
+            return;
+        }
+
+        // Перестановка строки вниз
+        for (int j = 0; j < grid.GetLength(1); j++)
+        {
+            GameObject temp = grid[rowIndex, j]; // Сохраняем текущую строку
+            grid[rowIndex, j] = grid[rowIndex - 1, j]; // Перемещаем нижнюю строку в текущую позицию
+            grid[rowIndex - 1, j] = temp; // Помещаем сохраненную строку в нижнюю позицию
 
             // Обновляем позиции GameObjects на сцене
-            grid[i, columnIndex].transform.position = new Vector2(columnIndex, i);
-            grid[i, columnIndex + 1].transform.position = new Vector2(columnIndex + 1, i);
+            grid[rowIndex, j].transform.position = new Vector2(j, rowIndex);
+            grid[rowIndex - 1, j].transform.position = new Vector2(j, rowIndex - 1);
+        }
+    }
+
+    public void MoveRowUp()
+    {
+        int rowIndex = currentCell.position.Item1;
+
+        if (rowIndex >= grid.GetLength(0) - 1)
+        {
+            // Если это верхняя строка, не делаем ничего
+            return;
+        }
+
+        // Перестановка строки вверх
+        for (int j = 0; j < grid.GetLength(1); j++)
+        {
+            GameObject temp = grid[rowIndex, j]; // Сохраняем текущую строку
+            grid[rowIndex, j] = grid[rowIndex + 1, j]; // Перемещаем верхнюю строку в текущую позицию
+            grid[rowIndex + 1, j] = temp; // Помещаем сохраненную строку в верхнюю позицию
+
+            // Обновляем позиции GameObjects на сцене
+            grid[rowIndex, j].transform.position = new Vector2(j, rowIndex);
+            grid[rowIndex + 1, j].transform.position = new Vector2(j, rowIndex + 1);
         }
     }
 

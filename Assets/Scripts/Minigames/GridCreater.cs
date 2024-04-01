@@ -1,11 +1,17 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridCreater : MonoBehaviour
 {
     public GameObject cellPrefab; // префаб для создания ячейки \/ НЕОБХОДИМО ПРИВЯЗАТЬ TextMesh
     public Sprite normalSprite; // обычная картинка для ячейки
+    public List<Sprite> normalSprites = new List<Sprite>();
+    public GameObject obj;
 
-    private string gridContent = ""; // Строка из 25 символов \/ ВНЕСТИ СЮДА ЗАШИФРОВАННУЮ СТРОКУ
+
+    private string gridContent = "ЛЬЗУЙВОСПОТЕСЬ_ПОДСКАЗКОЙ"; // Строка из 25 символов \/ ВНЕСТИ СЮДА ЗАШИФРОВАННУЮ СТРОКУ
 
     public GameObject[,] grid { get; private set; } // двумерный массив для хранения ячеек
 
@@ -17,6 +23,7 @@ public class GridCreater : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        CreateGrid();
     }
 
     public void CreateGrid()
@@ -28,11 +35,11 @@ public class GridCreater : MonoBehaviour
         {
             for (int j = 0; j < 5; j++)
             {
-                GameObject cell = Instantiate(cellPrefab, new Vector3(i, j, 0), Quaternion.identity);
-                cell.GetComponent<SpriteRenderer>().sprite = normalSprite;
-
+                GameObject cell = Instantiate(cellPrefab, obj.transform.forward, Quaternion.identity, obj.transform);
+                cell.GetComponent<Image>().sprite = PickRandomElement();
+                cell.GetComponent<Cell>().position = (i, j);
                 // Установка текста для TextMesh
-                TextMesh textMesh = cell.GetComponent<TextMesh>();
+                TextMeshProUGUI textMesh = cell.GetComponentInChildren<TextMeshProUGUI>();
                 if (textMesh != null && stringIndex < gridContent.Length)
                 {
                     textMesh.text = gridContent[stringIndex].ToString();
@@ -41,6 +48,18 @@ public class GridCreater : MonoBehaviour
 
                 grid[i, j] = cell;
             }
+        }
+
+        Sprite PickRandomElement()
+        {
+            if (normalSprites.Count == 0)
+            {
+                Debug.LogError("Список пуст!");
+                return null;
+            }
+
+            int randomIndex = Random.Range(0, normalSprites.Count);
+            return normalSprites[randomIndex];
         }
     }
 }
