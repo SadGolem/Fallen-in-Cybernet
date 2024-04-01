@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class GridCreater : MonoBehaviour
 {
-   /* public GameObject cellPrefab; // префаб для создания ячейки \/ НЕОБХОДИМО ПРИВЯЗАТЬ TextMesh
+    public GameObject cellPrefab; // префаб для создания ячейки \/ НЕОБХОДИМО ПРИВЯЗАТЬ TextMesh
     public Sprite normalSprite; // обычная картинка для ячейки
 
     private string gridContent = ""; // Строка из 25 символов \/ ВНЕСТИ СЮДА ЗАШИФРОВАННУЮ СТРОКУ
 
     public GameObject[,] grid { get; private set; } // двумерный массив для хранения ячеек
 
-    private bool PerfectSolution;
-    private bool CorrectSolution;
+    public bool PerfectSolution;
+    public bool CorrectSolution;
 
     public static GridCreater instance;
 
@@ -42,7 +42,7 @@ public class GridCreater : MonoBehaviour
                 grid[i, j] = cell;
             }
         }
-    }*/
+    }
 }
 
 

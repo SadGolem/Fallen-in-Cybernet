@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GridController : MonoBehaviour
 {
-    /*// Start is called before the first frame update
+    // Start is called before the first frame update
     private GridCreater gridCreater;
     private int attemptCounter = 0; // Счетчик попыток
     private int selectedColumnIndex = 0; // Инициализируем выбранный индекс столбца
@@ -85,9 +85,9 @@ public class GridController : MonoBehaviour
         if (result == correctSolutionString)
         {
             if (attemptCounter == 0)
-                PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
+                gridCreater.PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
             else
-                CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
+                gridCreater.CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
         }
         else
         {
@@ -113,5 +113,5 @@ public class GridController : MonoBehaviour
             }
         }
         return result;
-    }*/
+    }
 }

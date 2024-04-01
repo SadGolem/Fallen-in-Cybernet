@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class MagickGridController : MonoBehaviour, IPointerClickHandler
@@ -11,7 +11,7 @@ public class MagickGridController : MonoBehaviour, IPointerClickHandler
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,5 +19,5 @@ public class MagickGridController : MonoBehaviour, IPointerClickHandler
     {
 
     }
-}
+}*/
 
