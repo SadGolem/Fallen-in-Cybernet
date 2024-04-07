@@ -38,7 +38,7 @@ public class DialogController : MonoBehaviour
         {
             if (isTyping)
             {
-                if (SceneManager.sceneCount == 1 || SceneManager.sceneCount == 2) return;
+                /*if (SceneManager.sceneCount == 1 || SceneManager.sceneCount == 2) return;*/
                 StopAllCoroutines();
                 sentencesText.text = "";
                 sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
