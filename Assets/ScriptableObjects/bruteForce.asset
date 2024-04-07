@@ -10,12 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ca6d1f3ebb064149ab1a39da321b68d, type: 3}
-<<<<<<<< HEAD:Assets/ScriptableObjects/Prostaya perestanovka.asset
-  m_Name: Prostaya perestanovka
-========
-  m_Name: dOS
->>>>>>>> 00b96c4 (Adding some assets):Assets/ScriptableObjects/dOS.asset
+  m_Name: bruteForce
   m_EditorClassIdentifier: 
-  name: "\u041F\u0440\u043E\u0441\u0442\u0430\u044F \u043F\u0435\u0440\u0435\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430"
+  name: 
   description: 
   countPaper: 
