@@ -9,10 +9,11 @@ public class AdsController : MonoBehaviour
     [SerializeField] private GameObject adsSpawner;
     [SerializeField] private GameObject ads;
     [SerializeField] private DialogController _dialogController;
+    [SerializeField] private AchievementControl _achievementControl;
 
     void Update()
     {
-        if (dialog.text == "Привет! Меня зовут Итан. Я твой помощник в этой игре. Я буду тебе помогать во всем. Твоей первой задачей будет нажимать на эти окошки." && Input.anyKeyDown)
+        if (dialog.text == "Тебе нужно будет покликать на открывающиеся окна. Начинай!" && Input.anyKeyDown)
         {
             dialogWindow.SetActive(false);
             adsSpawner.SetActive(true);
@@ -35,5 +36,6 @@ public class AdsController : MonoBehaviour
     private void DeleteAllAds()
     {
         Destroy(ads);
+        _achievementControl.DoNotClickOnTheAds();
     }
 }

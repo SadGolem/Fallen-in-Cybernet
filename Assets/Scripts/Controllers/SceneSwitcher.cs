@@ -1,18 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSwitcher : MonoBehaviour
+public static class SceneSwitcher
 {
-    public static SceneSwitcher instance;
+    public static int sceneNumer = 1;
 
-    private void Awake()
-    {
-        instance = this;
-    }
 
-    public void SwitchScene(int sceneToLoad)
+    public static void SwitchScene(int sceneToLoad)
     {
         SceneManager.LoadScene(sceneToLoad); // Загрузить указанную сцену
+    }
+
+    public static void SwitchScene()
+    {
+        SceneManager.LoadScene(++sceneNumer); // Загрузить указанную сцену
     }
 }
 

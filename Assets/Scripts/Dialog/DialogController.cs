@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogController : MonoBehaviour
@@ -10,6 +11,7 @@ public class DialogController : MonoBehaviour
 
     [SerializeField] private List<Character> characters; 
     [SerializeField] private Image iconImage;
+    [SerializeField] private GameController _gameController;
     public Button dialogSkipButton;
     public event Action dialogSkipButtonEvent;
     public AudioSource audioSource;
@@ -26,6 +28,7 @@ public class DialogController : MonoBehaviour
     private void Start()
     {
         Invoke("WriteDialog", 2f);
+        
         /*dialogSkipButton.onClick.AddListener(OnButtonClick);*/
     }
 
@@ -35,7 +38,9 @@ public class DialogController : MonoBehaviour
         {
             if (isTyping)
             {
+                if (SceneManager.sceneCount == 1 || SceneManager.sceneCount == 2) return;
                 StopAllCoroutines();
+                sentencesText.text = "";
                 sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
                 isTyping = false;
             }
@@ -45,6 +50,8 @@ public class DialogController : MonoBehaviour
                 WriteDialog();
             }
         }
+        else
+            SwapScene();
     }
 
     private void SetCharacter(string name, Sprite icon/*, AudioClip audioClip*/)
@@ -83,4 +90,8 @@ public class DialogController : MonoBehaviour
         isTyping = false;
     }
 
+    void SwapScene()
+    {
+        _gameController.SwitchScene();
+    }
 }

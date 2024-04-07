@@ -3,19 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    private SceneSwitcher _sceneSwitcher;
+
     private DataHolder _dataHolder;
-    private int _sceneIndex = 0;
+    private int _sceneIndex = 1;
 
     private void Start()
     {
-        _sceneSwitcher = SceneSwitcher.instance;
         _dataHolder = DataHolder.instance;
     }
 
-    private void SwitchScene()
+    public void SwitchScene()
     {
-        _sceneSwitcher.SwitchScene(_sceneIndex);
+        SceneSwitcher.SwitchScene();
     }
 
     private void LoadScene()
