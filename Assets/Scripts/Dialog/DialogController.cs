@@ -12,6 +12,7 @@ public class DialogController : MonoBehaviour
     [SerializeField] private List<Character> characters; 
     [SerializeField] private Image iconImage;
     [SerializeField] private GameController _gameController;
+    [SerializeField] private GameObject _dialogWindow;
     public Button dialogSkipButton;
     public event Action dialogSkipButtonEvent;
     public AudioSource audioSource;
@@ -24,6 +25,7 @@ public class DialogController : MonoBehaviour
     private int IndexDialog = 0;
 
     private bool isTyping;
+    public bool _isReadingToGoNextScene = true;
 
     private void Start()
     {
@@ -92,6 +94,10 @@ public class DialogController : MonoBehaviour
 
     void SwapScene()
     {
-        _gameController.SwitchScene();
+        if (_isReadingToGoNextScene)
+            _gameController.SwitchScene();
+        else
+            _dialogWindow.SetActive(false);
+
     }
 }

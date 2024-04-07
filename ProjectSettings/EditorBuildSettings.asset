@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cabinet2.unity
     guid: 5666ccd4e4bf2ec43bbd7e448d8ef441
+  - enabled: 1
+    path: Assets/Scenes/EncryptionGame 1.unity
+    guid: 85b3b8755bb0e0949b7b654bfadee5ff
   m_configObjects: {}
