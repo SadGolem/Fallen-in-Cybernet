@@ -12,16 +12,8 @@ public class GridController : MonoBehaviour
     public static GridController instance;
     public Cell currentCell;
     public GameObject gridLayout;
-    Transform[] layoutGroup;
+    Transform[,] layoutGroup;
 
-    void GetLayout()
-    {
-        layoutGroup = new Transform[gridLayout.transform.childCount];
-        for (int i = 0; i < gridLayout.transform.childCount; i++)
-        {
-            layoutGroup[i] = gridLayout.transform.GetChild(i);
-        }
-    }
 
     private void Awake()
     {
@@ -35,45 +27,57 @@ public class GridController : MonoBehaviour
         GetLayout();
     }
 
+    void GetLayout()
+    {
+        int rows = grid.GetLength(0);
+        int cols = grid.GetLength(1);
+        layoutGroup = new Transform[rows, cols];
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                int index = i * cols + j;
+                if (index < gridLayout.transform.childCount)
+                {
+                    layoutGroup[i, j] = gridLayout.transform.GetChild(index);
+                }
+            }
+        }
+    }
+
     public void MoveColumnLeft()
     {
         int columnIndex = currentCell.position.Item2;
 
         if (columnIndex <= 0)
-        {
-            // Если это крайний левый столбец, не делать ничего
             return;
-        }
 
-        // Перестановка столбца влево
-        for (int i = 0; i < gridLayout.transform.childCount / grid.GetLength(1); i++)
+        for (int i = 0; i < grid.GetLength(0); i++)
         {
-            // Получаем индексы для обмена
-            int currentIndex = i * grid.GetLength(1) + columnIndex;
-            int leftIndex = i * grid.GetLength(1) + columnIndex - 1;
+            if (columnIndex - 1 >= 0)
+            {
+                // Меняем местами объекты в grid
+                var temp = grid[i, columnIndex];
+                grid[i, columnIndex] = grid[i, columnIndex - 1];
+                grid[i, columnIndex - 1] = temp;
 
-            // Запоминаем левую позицию
-            Vector3 leftPosition = layoutGroup[leftIndex].position;
-
-            // Меняем позиции объектов местами
-            layoutGroup[leftIndex].position = layoutGroup[currentIndex].position;
-            layoutGroup[currentIndex].position = leftPosition;
-
-            // Опционально: для обмена местами объектов в иерархии (если это требуется)
-            layoutGroup[leftIndex].SetSiblingIndex(currentIndex);
-            layoutGroup[currentIndex].SetSiblingIndex(leftIndex);
+                // Обновляем позиции объектов
+                var tempPos = grid[i, columnIndex].transform.position;
+                grid[i, columnIndex].transform.position = grid[i, columnIndex - 1].transform.position;
+                grid[i, columnIndex - 1].transform.position = tempPos;
+            }
         }
 
-        // Обновляем массив layoutGroup, если порядок объектов в иерархии изменился
+        // Обновляем layoutGroup, чтобы отразить новый порядок объектов
         GetLayout();
     }
 
     public void MoveColumnRight()
     {
-        int columnIndex = currentCell.position.Item2;// нужно корректно получить текущий индекс столбца из вашей логики
+   /*     int columnIndex = currentCell.position.Item2;
 
-    // Проверка, что это не крайний правый столбец
-    if (columnIndex >= grid.GetLength(1) - 1)
+        if (columnIndex >= grid.GetLength(1) - 1)
         {
             // Если это крайний правый столбец, не делать ничего
             return;
@@ -82,24 +86,18 @@ public class GridController : MonoBehaviour
         // Перестановка столбца вправо
         for (int i = 0; i < gridLayout.transform.childCount / grid.GetLength(1); i++)
         {
-            // Получаем индексы для обмена
             int currentIndex = i * grid.GetLength(1) + columnIndex;
             int rightIndex = i * grid.GetLength(1) + columnIndex + 1;
 
-            // Запоминаем правую позицию
-            Vector3 rightPosition = layoutGroup[rightIndex].position;
+            // Обмен местами объектов в массиве для соответствия новому порядку в иерархии
+            Transform temp = layoutGroup[currentIndex];
+            layoutGroup[currentIndex] = layoutGroup[rightIndex];
+            layoutGroup[rightIndex] = temp;
 
-            // Меняем позиции объектов местами
-            layoutGroup[rightIndex].position = layoutGroup[currentIndex].position;
-            layoutGroup[currentIndex].position = rightPosition;
-
-            // Опционально: для обмена местами объектов в иерархии
-            layoutGroup[rightIndex].SetSiblingIndex(currentIndex);
+            // Обновление позиций в иерархии
             layoutGroup[currentIndex].SetSiblingIndex(rightIndex);
-        }
-
-        // Обновляем массив layoutGroup после изменения порядка объектов
-        GetLayout();
+            layoutGroup[rightIndex].SetSiblingIndex(currentIndex);
+        }*/
     }
 
     public void MoveRowDown()
