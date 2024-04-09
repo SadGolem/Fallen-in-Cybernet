@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ca6d1f3ebb064149ab1a39da321b68d, type: 3}
   m_Name: worms
   m_EditorClassIdentifier: 
-  name: 
-  description: 
+  name: "\u0427\u0435\u0440\u0432\u0438"
+  description: "\u0413\u0414\u0415 \u0418\u041D\u0424\u041E\u0420\u041C\u0410\u0426\u0418\u042F"
   countPaper: 

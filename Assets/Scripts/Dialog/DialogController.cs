@@ -53,7 +53,10 @@ public class DialogController : MonoBehaviour
             }
         }
         else
-            SwapScene();
+        {
+            if (!isTyping)
+                SwapScene();
+        }
     }
 
     private void SetCharacter(string name, Sprite icon/*, AudioClip audioClip*/)

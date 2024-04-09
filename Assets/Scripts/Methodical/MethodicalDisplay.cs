@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 public class MethodicalDisplay : MonoBehaviour
@@ -10,7 +8,13 @@ public class MethodicalDisplay : MonoBehaviour
     public TextMeshProUGUI name;
     public TextMeshProUGUI description;
 
-    private void Start()
+    public void GetMethodical(MethodicalInformation methodicalInformation)
+    {
+        methodical = methodicalInformation;
+        UpdateText();
+    }
+
+    private void UpdateText()
     {
         name.text = methodical.name;
         description.text = methodical.description;
