@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public static class SceneSwitcher
 {
-    public static int sceneNumer = 1;
+    public static int sceneNumer = 0;
 
 
     public static void SwitchScene(int sceneToLoad)

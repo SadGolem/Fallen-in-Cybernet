@@ -22,9 +22,10 @@ public class DialogController : MonoBehaviour
     public TextMeshProUGUI nameText;
 
     
-    private int IndexDialog = 0;
+    private int indexDialog = 0;
 
     private bool isTyping;
+    private bool goBreakOut;
     public bool _isReadingToGoNextScene = true;
 
     private void Start()
@@ -36,20 +37,36 @@ public class DialogController : MonoBehaviour
 
     public void SkipDialog()
     {
-        if (IndexDialog != characters.Count - 1)
+        if (indexDialog != characters.Count - 1)
         {
-            if (isTyping)
+            /*if (isTyping)
             {
-                /*if (SceneManager.sceneCount == 1 || SceneManager.sceneCount == 2) return;*/
-                StopAllCoroutines();
+                *//*if (SceneManager.sceneCount == 1 || SceneManager.sceneCount == 2) return;*//*
+                StopCoroutine(TypeSentence(characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog], sentencesText));
                 sentencesText.text = "";
                 sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
                 isTyping = false;
             }
             else
             {
-                IndexDialog++;
+                StopAllCoroutines();
+                sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
+                goBreakOut = true;
+                    IndexDialog++;
+                    WriteDialog();
+                
+            }*/
+
+            StopAllCoroutines();
+            if (sentencesText.text == characters[indexDialog].dialogText[characters[indexDialog].indexDialog])
+            {
+                ++indexDialog;
+
                 WriteDialog();
+            }
+            else
+            {
+                sentencesText.text = characters[indexDialog].dialogText[characters[indexDialog].indexDialog];
             }
         }
         else
@@ -68,11 +85,11 @@ public class DialogController : MonoBehaviour
 
     private void WriteDialog()
     {
-        if (IndexDialog > characters.Count - 1)
+        if (indexDialog > characters.Count - 1)
             return;
 
-        TextDialog(characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog],
-            characters[IndexDialog].nameCharacter, characters[IndexDialog].iconImage, characters[IndexDialog].sound);
+        TextDialog(characters[indexDialog].dialogText[characters[indexDialog].indexDialog],
+            characters[indexDialog].nameCharacter, characters[indexDialog].iconImage, characters[indexDialog].sound);
     }
 
     private void TextDialog(string text, string name, Sprite image, List<AudioClip> sound)
@@ -83,16 +100,19 @@ public class DialogController : MonoBehaviour
 
     private IEnumerator TypeSentence(string sentence, TextMeshProUGUI texBox)
     {
+        
+        isTyping = true;
         sentencesText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            isTyping = true;
+            if (goBreakOut) break;
             sentencesText.text += letter;
             if (letter != ' ')
-                audioSource.PlayOneShot(RandomElementsSelector<AudioClip>.SelectRandomElement(characters[IndexDialog].sound)); //нада сделать звук
+                audioSource.PlayOneShot(RandomElementsSelector<AudioClip>.SelectRandomElement(characters[indexDialog].sound)); //нада сделать звук
             yield return new WaitForSeconds(0.15f);
         }
         isTyping = false;
+        goBreakOut = false;
     }
 
     void SwapScene()
