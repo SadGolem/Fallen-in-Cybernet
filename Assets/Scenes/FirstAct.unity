@@ -1157,11 +1157,13 @@ MonoBehaviour:
   - {fileID: 1480483831}
   iconImage: {fileID: 198344622}
   _gameController: {fileID: 1068503931}
+  _dialogWindow: {fileID: 0}
   dialogSkipButton: {fileID: 1806497035}
   audioSource: {fileID: 1448452590}
   audioClip: {fileID: 0}
   sentencesText: {fileID: 1115080466}
   nameText: {fileID: 1089740116}
+  _isReadingToGoNextScene: 1
 --- !u!4 &1782867257
 Transform:
   m_ObjectHideFlags: 0

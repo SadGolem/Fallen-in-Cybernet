@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DropsMiniGameController : MonoBehaviour
@@ -14,10 +15,15 @@ public class DropsMiniGameController : MonoBehaviour
     public Button left; // кнопка
     public Button right; // кнопка
     public float spawnInterval = 1.0f; // интервал спавна новых предметов
-    public float moveSpeed = 100f; // скорость движения предметов вниз
+    public float moveSpeed = 0.06f; // скорость движения предметов вниз
     public float destroyY = -6.0f; // предмет уничтожается, если достигает этой координаты по Y
     [SerializeField] List<string> attackList = new List<string>();
     [SerializeField] List<string> simleText = new List<string>();
+    [SerializeField] TextMeshProUGUI counter;
+    [SerializeField] TextMeshProUGUI counterHeart;
+    [SerializeField] GameObject gameOver;
+    private int count = 0;
+    private int countHeart = 3;
 
     void Start()
     {
@@ -39,19 +45,19 @@ public class DropsMiniGameController : MonoBehaviour
 
     void SpawnItem()
     {
-        Vector3 randomSpawnPoint = new Vector3(Random.Range(200f, 1800f), spawnPoint.position.y, spawnPoint.position.z);
+        Vector3 randomSpawnPoint = new Vector3(Random.Range(-8.4f, 8.4f), spawnPoint.position.y, spawnPoint.position.z);
 
         GameObject item;
         if (Random.Range(0, 101) <= 50)
         {
             item = Instantiate(badItemPrefab, randomSpawnPoint, Quaternion.identity, parent.transform);
-            var text = item.GetComponent<TextMeshProUGUI>();
+            var text = item.GetComponentInChildren<TextMeshProUGUI>();
             text.text = GetRandomSimpleText();
         }
         else
         {
             item = Instantiate(itemPrefab, randomSpawnPoint, Quaternion.identity, parent.transform);
-            var text = item.GetComponent<TextMeshProUGUI>();
+            var text = item.GetComponentInChildren<TextMeshProUGUI>();
             text.text = GetRandomBadText();
         }
         Destroy(item, 10.0f); // уничтожаем предмет спустя 10 секунд
@@ -74,7 +80,7 @@ public class DropsMiniGameController : MonoBehaviour
         GameObject[] items = GameObject.FindGameObjectsWithTag("Item");
         foreach (var item in items)
         {
-            item.transform.Translate(Vector3.down * moveSpeed);
+            item.transform.Translate(Vector3.down * moveSpeed * Time.timeScale);
         }
     }
 
@@ -104,15 +110,38 @@ public class DropsMiniGameController : MonoBehaviour
         }
     }
 
+    public void Counter()
+    {
+        count++;
+        counter.text = count.ToString();
+    }
+
+    public void UnCounter()
+    {
+        --countHeart;
+        counterHeart.text = countHeart.ToString();
+        if (countHeart == 0)
+        {
+            Time.timeScale = 0f;
+            gameOver.SetActive(true);
+        }
+    }
+
     public void GoRight()
     {
-        if (player.localPosition.x < 857)
-            player.Translate(Vector3.right * moveSpeed); // Двигаем персонажа вправо
+        if (player.localPosition.x < 8.12)
+            player.Translate(Vector3.right * moveSpeed /** Time.timeScale*/); // Двигаем персонажа вправо
+    }
+
+    public void Restart()
+    {
+        var i = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(i);
     }
 
     public void GoLeft()
     {
-        if (player.localPosition.x > -862)
-            player.Translate(Vector3.left * moveSpeed ); // Двигаем персонажа влево 
+        if (player.localPosition.x > -8.12)
+            player.Translate(Vector3.left * moveSpeed /** Time.timeScale*/); // Двигаем персонажа влево 
     }
 }

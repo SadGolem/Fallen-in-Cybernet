@@ -30,4 +30,6 @@ public class DataHolder : MonoBehaviour
         SaveScene(indexScene);
         PlayerPrefs.GetInt("dialogIndex");
     }
+
+
 }
