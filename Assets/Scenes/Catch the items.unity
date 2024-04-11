@@ -290,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &256508346
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1098,6 +1098,7 @@ MonoBehaviour:
   counter: {fileID: 1023732487}
   counterHeart: {fileID: 1055799520}
   gameOver: {fileID: 1887515047}
+  gameWin: {fileID: 256508345}
 --- !u!4 &555547838
 Transform:
   m_ObjectHideFlags: 0
@@ -2095,7 +2096,7 @@ PrefabInstance:
     - target: {fileID: 5945082253438039634, guid: 8c5326bac126ead4787095b2bedb10e1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1447056510}
+      objectReference: {fileID: 2043981405}
     - target: {fileID: 5945082253438039634, guid: 8c5326bac126ead4787095b2bedb10e1, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -2444,9 +2445,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 287393590}
     m_Modifications:
     - target: {fileID: 8551963745326884600, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551963745326884600, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1026089449}
+    - target: {fileID: 8551963745326884600, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2043981405}
+    - target: {fileID: 8551963745326884600, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 8551963745374799516, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2915,7 +2928,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -2836139807298077764, guid: cb08d25026913d54f9a028a96beb731b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 659abbaa0d949834d98b1158955d0726, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b29c1ce7b584e734cafe159202316591, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

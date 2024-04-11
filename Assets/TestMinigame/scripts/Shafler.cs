@@ -32,4 +32,18 @@ public static class Shafler
         }
         return list;
     }
+
+    public static List<(string, string,string)> Shuffle(List<(string, string, string)> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = random.Next(n + 1);
+            var value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
+        return list;
+    }
 }

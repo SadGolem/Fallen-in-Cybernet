@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Cabinet2.unity
     guid: 5666ccd4e4bf2ec43bbd7e448d8ef441
   - enabled: 1
-    path: Assets/Scenes/EncryptionGame 1.unity
-    guid: 85b3b8755bb0e0949b7b654bfadee5ff
+    path: Assets/Scenes/Catch the items.unity
+    guid: 26d0227d75e3e0e40a5e3b924356d32e
+  - enabled: 1
+    path: Assets/Scenes/Cabinet 3.unity
+    guid: 668b324f498963043ac3fb81c9a7db00
   m_configObjects: {}

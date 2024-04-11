@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.UI;
 
 public class DropsMiniGameController : MonoBehaviour
@@ -22,8 +23,10 @@ public class DropsMiniGameController : MonoBehaviour
     [SerializeField] TextMeshProUGUI counter;
     [SerializeField] TextMeshProUGUI counterHeart;
     [SerializeField] GameObject gameOver;
+    [SerializeField] GameObject gameWin;
     private int count = 0;
     private int countHeart = 3;
+    private static int achievementCounter;
 
     void Start()
     {
@@ -114,6 +117,12 @@ public class DropsMiniGameController : MonoBehaviour
     {
         count++;
         counter.text = count.ToString();
+
+        if (count == 20)
+        {
+            Time.timeScale = 0f;
+            gameWin.SetActive(true);
+        }
     }
 
     public void UnCounter()
@@ -135,6 +144,8 @@ public class DropsMiniGameController : MonoBehaviour
 
     public void Restart()
     {
+        ++achievementCounter;
+        Time.timeScale = 1f;
         var i = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(i);
     }
