@@ -77,7 +77,7 @@ public class ComputerGameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Insert))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             CheckAnswer();
         }
@@ -96,7 +96,7 @@ public class ComputerGameManager : MonoBehaviour
             audioSource.PlayOneShot(incorrectAnswer);
         }
 
-        if (correct == count -1)
+        if (correct == count - 1)
         {
             winWindows.SetActive(true);
         }

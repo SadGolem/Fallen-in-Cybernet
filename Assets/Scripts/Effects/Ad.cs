@@ -17,8 +17,5 @@ public class Ad : MonoBehaviour
         _achievementControl = GetComponent<AchievementControl>();
     }
 
-    public void OnButtonClick()
-    {
-        _achievementControl.isClickedOnAds = true;
-    }
+    public void OnButtonClick() => AchievementControl.isClickedOnAds = true;
 }

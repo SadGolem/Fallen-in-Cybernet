@@ -9,12 +9,12 @@ public class DataHolder : MonoBehaviour
         instance = this;
     }
 
-    public void SaveScene(int index)
+    private void SaveScene(int index)
     {
         PlayerPrefs.SetInt("sceneIndex", index);
     }
 
-    public void LoadScene(int index)
+    private void LoadScene(int index)
     {
         PlayerPrefs.GetInt("sceneIndex", index);
     }
@@ -30,6 +30,8 @@ public class DataHolder : MonoBehaviour
         SaveScene(indexScene);
         PlayerPrefs.GetInt("dialogIndex");
     }
+
+
 
 
 }

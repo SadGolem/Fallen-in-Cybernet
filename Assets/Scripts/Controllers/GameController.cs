@@ -3,13 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-
     private DataHolder _dataHolder;
     private int _sceneIndex = 1;
+    
 
     private void Start()
     {
         _dataHolder = DataHolder.instance;
+        Time.timeScale = 1.0f;
     }
 
     public void SwitchScene()

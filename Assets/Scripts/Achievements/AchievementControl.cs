@@ -3,7 +3,7 @@ using UnityEngine;
 public class AchievementControl : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [HideInInspector] public bool isClickedOnAds;
+    [HideInInspector] public static bool isClickedOnAds;
 
    /* private Animation achievementAnimation;*/
     private bool achievementShown = false;

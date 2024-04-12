@@ -3,12 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogController : MonoBehaviour
 {
-
     [SerializeField] private List<Character> characters; 
     [SerializeField] private Image iconImage;
     [SerializeField] private GameController _gameController;

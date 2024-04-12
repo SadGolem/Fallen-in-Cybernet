@@ -26,4 +26,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cabinet 3.unity
     guid: 668b324f498963043ac3fb81c9a7db00
+  - enabled: 1
+    path: Assets/Scenes/Monitor.unity
+    guid: 3dd74b4cec7caad499dd9f2e70c24735
+  - enabled: 1
+    path: Assets/Scenes/Cabinet 4.unity
+    guid: 4efab7a0b3026aa40b721e4c23cd9f74
+  - enabled: 1
+    path: Assets/Scenes/Test.unity
+    guid: eb60dc31d834040419e93e40e5cda380
+  - enabled: 1
+    path: Assets/Scenes/Cabinet 5.unity
+    guid: a046bed6d07203e4e963125c59127c0f
   m_configObjects: {}
