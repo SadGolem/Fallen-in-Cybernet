@@ -66,12 +66,12 @@ public class DataHolder : MonoBehaviour
     public void SaveScene(int slotIndex, int indexScene)
     {
         PlayerPrefs.SetInt("sceneIndex_slot" + slotIndex, indexScene);
-        PlayerPrefs.SetString("saveTime_slot" + slotIndex, System.DateTime.Now.ToString()); // ��������� ������� �����
+        PlayerPrefs.SetString("saveTime_slot" + slotIndex, System.DateTime.Now.ToString());
     }
 
     public int LoadScene(int slotIndex)
     {
-        return PlayerPrefs.GetInt("sceneIndex_slot" + slotIndex, -1); // ���������� -1 ���� ���� ����
+        return PlayerPrefs.GetInt("sceneIndex_slot" + slotIndex, -1); 
     }
 
     public void SaveDialogIndexAndScene(int slotIndex, int indexScene, int indexDialog)
@@ -79,33 +79,32 @@ public class DataHolder : MonoBehaviour
         SaveScene(slotIndex, indexScene);
         PlayerPrefs.SetInt("dialogIndex_slot" + slotIndex, indexDialog);
         PlayerPrefs.SetString("saveTime_slot" + slotIndex, System.DateTime.Now.ToString());
-        PlayerPrefs.Save(); // ��������� ��������� � PlayerPrefs
+        PlayerPrefs.Save();
     }
 
 
     public int LoadDialogIndex(int slotIndex)
     {
-        return PlayerPrefs.GetInt("dialogIndex_slot" + slotIndex, -1); // ���������� -1 ���� ���� ����
+        return PlayerPrefs.GetInt("dialogIndex_slot" + slotIndex, -1);
     }
 
-    // �������������� ����� ��� ��������� ������� ���������� ��� �����
+    
     public string GetSaveTime(int slotIndex)
     {
-        return PlayerPrefs.GetString("saveTime_slot" + slotIndex, "-"); // ���������� "-" ���� ���� ����
+        return PlayerPrefs.GetString("saveTime_slot" + slotIndex, "-");
     }
 
 
-    // �������������� ����� ��� ��������� �������� ����� �� �������
+    
     public string GetSceneNameByIndex(int index)
     {
-        // ��� ���� ������ ��� ����������� ����� ����� �� �������
         switch (index)
         {
-            case 1: return "������ ���";
-            case 2: return "������ ���";
-            case 3: return "������ ���";
+            case 1: return "Первый акт";
+            case 2: return "Второй акт";
+            case 3: return "Третий акт";
 
-            default: return "??? ���";
+            default: return "??? акт";
         }
     }
 }
