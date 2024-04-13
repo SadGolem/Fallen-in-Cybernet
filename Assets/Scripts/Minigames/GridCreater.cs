@@ -11,7 +11,8 @@ public class GridCreater : MonoBehaviour
     public GameObject obj;
 
 
-    private string gridContent = "ЛЬЗУЙВОСПОТЕСЬ_ПОДСКАЗКОЙ"; // Строка из 25 символов \/ ВНЕСТИ СЮДА ЗАШИФРОВАННУЮ СТРОКУ
+    [SerializeField] public string gridContent = "ЛЬЗУЙВОСПОТЕСЬ_ПОДСКАЗКОЙ"; // Строка из 25 символов \/ ВНЕСТИ СЮДА ЗАШИФРОВАННУЮ СТРОКУ
+    [SerializeField] public string gridAnswer = "ВОСПОЛЬЗУЙТЕСЬ_ПОДСКАЗКОЙ"; // Строка из 25 символов \/ ВНЕСТИ СЮДА ЗАШИФРОВАННУЮ СТРОКУ
 
     public GameObject[,] grid { get; private set; } // двумерный массив для хранения ячеек
 

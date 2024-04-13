@@ -38,4 +38,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cabinet 5.unity
     guid: a046bed6d07203e4e963125c59127c0f
+  - enabled: 1
+    path: Assets/Scenes/EncryptionGame.unity
+    guid: 85b3b8755bb0e0949b7b654bfadee5ff
+  - enabled: 1
+    path: Assets/Scenes/EncryptionGame 1.unity
+    guid: cd48be4ca3483bc46aa63f059372bee8
+  - enabled: 1
+    path: Assets/Scenes/EncryptionGame 2.unity
+    guid: d89ede7a0678c424cb581a1dc74d05b2
   m_configObjects: {}

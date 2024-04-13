@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HintMaker : MonoBehaviour
@@ -10,6 +11,7 @@ public class HintMaker : MonoBehaviour
 
     private List<List<string>> hintsPerPhrase = new List<List<string>>();
     private Dictionary<int, int> hintCountPerPhrase = new Dictionary<int, int>();
+    [SerializeField] private List<string> hints = new List<string>();
 
     public bool AllHintsGiven { get; private set; } = false;
 
@@ -17,22 +19,23 @@ public class HintMaker : MonoBehaviour
     {
         // Инициализируем подсказки для каждой фразы
         // Например, для первой фразы...
-        hintsPerPhrase.Add(new List<string>
-        {
-            "Ь должен быть в третьей строке",
-            "Ь должен быть во втором стобце",
-            "В последней строке должна быть одна О",
-            "Й должна быть во второй строке",
-            "Двойная О должна быть в первой строке"
-        });
-        hintsPerPhrase.Add(new List<string>
+        /* hintsPerPhrase.Add(new List<string>
+         {
+             "Ь должен быть в третьей строке",
+             "Ь должен быть во втором стобце",
+             "В последней строке должна быть одна О",
+             "Й должна быть во второй строке",
+             "Двойная О должна быть в первой строке"
+         });*/
+      /*  hintCountPerPhrase.Add(new List<string>
         {
             "Первая подсказка для фразы 2",
             "Вторая подсказка для фразы 2",
             "Третья подсказка для фразы 2",
             "Четвертая подсказка для фразы 2",
             "Пятая подсказка для фразы 2"
-        });
+        });*/
+        hintsPerPhrase.Add(hints);
         // Добавьте аналогично подсказки для других фраз...
     }
 

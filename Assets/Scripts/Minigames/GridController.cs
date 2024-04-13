@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class GridController : MonoBehaviour
     public GameObject gridLayout;
     Transform[,] layoutGroup;
     private List<Cell> cells = new List<Cell>();
+    [SerializeField] private bool isDoublePer;
+    [SerializeField] private GameObject winWindow;
 
     private void Awake()
     {
@@ -131,7 +134,8 @@ public class GridController : MonoBehaviour
 
     public void MoveRowUp()
     {
-        int rowIndex = currentCell.position.Item1;
+        if (!isDoublePer) return;
+            int rowIndex = currentCell.position.Item1;
 
         // Проверяем, не является ли текущая строка крайней сверху
         if (rowIndex <= 0)
@@ -157,6 +161,7 @@ public class GridController : MonoBehaviour
 
     public void MoveRowDown()
     {
+        if (!isDoublePer) return;
         int rowIndex = currentCell.position.Item1;
 
         // Проверяем, не является ли текущая строка крайней снизу
@@ -180,41 +185,49 @@ public class GridController : MonoBehaviour
         // Обновляем layoutGroup, чтобы отразить новый порядок объектов
         GetLayout();
     }
+    private void Update()
+    {
+        CheckSolution();
+    }
 
-    /*    void CheckSolution() // В ПРОЦЕССЕ ДОРАБОТКИ
+    void CheckSolution() // В ПРОЦЕССЕ ДОРАБОТКИ
+    {
+        string correctSolutionString = gridCreater.gridAnswer; // Строка ответ (без пробелов) \/ СТРОГО 25 СИМВОЛОВ
+        string result = BuildResultString();
+        if (result == correctSolutionString)
         {
-            string correctSolutionString = ""; // Строка ответ (без пробелов) \/ СТРОГО 25 СИМВОЛОВ
-            string result = BuildResultString();
-            if (result == correctSolutionString)
-            {
-                if (attemptCounter == 0)
-                    gridCreater.PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
-                else
-                    gridCreater.CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
-            }
+            if (attemptCounter == 0)
+                gridCreater.PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
             else
-            {
-                // Увеличение счетчика при неправильном решении
-                attemptCounter++;
-            }
+                gridCreater.CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
+            Debug.Log("Решение правильное");
+            winWindow.SetActive(true);
         }
-
-        string BuildResultString() // В ПРОЦЕССЕ ДОРАБОТКИ
+        else
         {
-            string result = "";
-            for (int j = 0; j < gridCreater.grid.GetLength(1); j++) // Итерация по столбцам
+            // Увеличение счетчика при неправильном решении
+            attemptCounter++;
+            Debug.Log("Решение неправильное");
+        }
+    }
+
+    string BuildResultString() // В ПРОЦЕССЕ ДОРАБОТКИ
+    {
+        string result = "";
+        for (int j = 0; j < grid.GetLength(1); j++) // Итерация по столбцам
+        {
+            for (int i = 0; i < grid.GetLength(0); i++) // Итерация по строкам
             {
-                for (int i = 0; i < gridCreater.grid.GetLength(0); i++) // Итерация по строкам
+                // Здесь предполагается, что у каждой ячейки есть компонент, содержащий символ этой ячейки.
+                string cellComponent = grid[j, i].GetComponent<Cell>().GetComponentInChildren<TextMeshProUGUI>().text;
+                if (cellComponent != null)
                 {
-                    // Здесь предполагается, что у каждой ячейки есть компонент, содержащий символ этой ячейки.
-                    Cell cellComponent = gridCreater.grid[i, j].GetComponent<Cell>();
-                    if (cellComponent != null)
-                    {
-                        // Предполагается, что у компонента Cell есть метод ToString() или свойство для получения символа
-                        result += cellComponent.ToString();
-                    }
+                    // Предполагается, что у компонента Cell есть метод ToString() или свойство для получения символа
+                    result += cellComponent.ToString();
                 }
             }
-            return result;
-        }*/
+        }
+        Debug.Log("Результат:" + result);
+        return result;
+    }
 }
