@@ -121,4 +121,15 @@ public class DialogController : MonoBehaviour
             _dialogWindow.SetActive(false);
 
     }
+
+    public void SetDialogIndex(int index)
+    {
+        indexDialog = index;
+        // “ут может потребоватьс€ вызвать другие методы, чтобы обновить UI или продолжить диалог с нового места
+    }
+    public int GetCurrentDialogIndex()
+    {
+        // ¬озвращаем текущий индекс диалога
+        return indexDialog;
+    }
 }
