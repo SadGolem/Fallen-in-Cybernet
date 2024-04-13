@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,12 @@ public class GridController : MonoBehaviour
     private int attemptCounter = 0; // Счетчик попыток
     private int selectedColumnIndex = 0; // Инициализируем выбранный индекс столбца
     private bool checkButtonPressed = false; // Состояние кнопки "Проверить"
-    private GameObject[,] grid;
+    public GameObject[,] grid;
     public static GridController instance;
     public Cell currentCell;
     public GameObject gridLayout;
     Transform[,] layoutGroup;
-
+    private List<Cell> cells = new List<Cell>();
 
     private void Awake()
     {
@@ -25,14 +26,9 @@ public class GridController : MonoBehaviour
         gridCreater = GridCreater.instance;
         grid = gridCreater.grid;
         GetLayout();
-    }
-
-    void GetLayout()
-    {
+        /*string s = "";*/
         int rows = grid.GetLength(0);
         int cols = grid.GetLength(1);
-        layoutGroup = new Transform[rows, cols];
-
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
@@ -41,11 +37,44 @@ public class GridController : MonoBehaviour
                 if (index < gridLayout.transform.childCount)
                 {
                     layoutGroup[i, j] = gridLayout.transform.GetChild(index);
+                    /*s += layoutGroup[i, j].GetComponent<Cell>().position + " ";*/
+
                 }
+
             }
+            /*s += "\n";*/
         }
+        /*Debug.Log(s);*/
+
+        Cell[] foundCells = FindObjectsOfType<Cell>();
+        cells.AddRange(foundCells);
     }
 
+    void GetLayout()
+    {
+        int rows = grid.GetLength(0);
+        int cols = grid.GetLength(1);
+        layoutGroup = new Transform[rows, cols];
+        /*string s = "";*/
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                int index = i * cols + j;
+                if (index < grid.Length)
+                {
+                    layoutGroup[i, j] = grid[i, j].transform;
+                    layoutGroup[i, j].GetComponent<Cell>().position = (i, j);
+                    /*s += layoutGroup[i, j].GetComponent<Cell>().position + " ";*/
+
+                }
+
+            }
+            /*s += "\n";*/
+        }
+        /*Debug.Log(s);*/
+
+    }
     public void MoveColumnLeft()
     {
         int columnIndex = currentCell.position.Item2;
@@ -75,111 +104,117 @@ public class GridController : MonoBehaviour
 
     public void MoveColumnRight()
     {
-   /*     int columnIndex = currentCell.position.Item2;
+        int columnIndex = currentCell.position.Item2;
 
+        // Проверяем, не является ли текущий столбец крайним справа
         if (columnIndex >= grid.GetLength(1) - 1)
-        {
-            // Если это крайний правый столбец, не делать ничего
             return;
+
+        // Меняем местами объекты в grid для каждой строки
+        for (int i = 0; i < grid.GetLength(0); i++)
+        {
+            // Меняем местами объекты в grid
+            var temp = grid[i, columnIndex];
+            grid[i, columnIndex] = grid[i, columnIndex + 1];
+            grid[i, columnIndex + 1] = temp;
+
+            // Обновляем позиции объектов
+            var tempPos = grid[i, columnIndex].transform.position;
+            grid[i, columnIndex].transform.position = grid[i, columnIndex + 1].transform.position;
+            grid[i, columnIndex + 1].transform.position = tempPos;
         }
 
-        // Перестановка столбца вправо
-        for (int i = 0; i < gridLayout.transform.childCount / grid.GetLength(1); i++)
+        // Обновляем layoutGroup, чтобы отразить новый порядок объектов
+        GetLayout();
+    }
+
+
+    public void MoveRowUp()
+    {
+        int rowIndex = currentCell.position.Item1;
+
+        // Проверяем, не является ли текущая строка крайней сверху
+        if (rowIndex <= 0)
+            return;
+
+        // Меняем местами объекты в grid для каждого столбца
+        for (int j = 0; j < grid.GetLength(1); j++)
         {
-            int currentIndex = i * grid.GetLength(1) + columnIndex;
-            int rightIndex = i * grid.GetLength(1) + columnIndex + 1;
+            // Меняем местами объекты в grid
+            var temp = grid[rowIndex, j];
+            grid[rowIndex, j] = grid[rowIndex - 1, j];
+            grid[rowIndex - 1, j] = temp;
 
-            // Обмен местами объектов в массиве для соответствия новому порядку в иерархии
-            Transform temp = layoutGroup[currentIndex];
-            layoutGroup[currentIndex] = layoutGroup[rightIndex];
-            layoutGroup[rightIndex] = temp;
+            // Обновляем позиции объектов
+            var tempPos = grid[rowIndex, j].transform.position;
+            grid[rowIndex, j].transform.position = grid[rowIndex - 1, j].transform.position;
+            grid[rowIndex - 1, j].transform.position = tempPos;
+        }
 
-            // Обновление позиций в иерархии
-            layoutGroup[currentIndex].SetSiblingIndex(rightIndex);
-            layoutGroup[rightIndex].SetSiblingIndex(currentIndex);
-        }*/
+        // Обновляем layoutGroup, чтобы отразить новый порядок объектов
+        GetLayout();
     }
 
     public void MoveRowDown()
     {
         int rowIndex = currentCell.position.Item1;
 
-        if (rowIndex <= 0)
-        {
-            // Если это нижняя строка, не делаем ничего
-            return;
-        }
-
-        // Перестановка строки вниз
-        for (int j = 0; j < grid.GetLength(1); j++)
-        {
-            GameObject temp = grid[rowIndex, j]; // Сохраняем текущую строку
-            grid[rowIndex, j] = grid[rowIndex - 1, j]; // Перемещаем нижнюю строку в текущую позицию
-            grid[rowIndex - 1, j] = temp; // Помещаем сохраненную строку в нижнюю позицию
-
-            // Обновляем позиции GameObjects на сцене
-            grid[rowIndex, j].transform.position = new Vector2(j, rowIndex);
-            grid[rowIndex - 1, j].transform.position = new Vector2(j, rowIndex - 1);
-        }
-    }
-
-    public void MoveRowUp()
-    {
-        int rowIndex = currentCell.position.Item1;
-
+        // Проверяем, не является ли текущая строка крайней снизу
         if (rowIndex >= grid.GetLength(0) - 1)
-        {
-            // Если это верхняя строка, не делаем ничего
             return;
-        }
 
-        // Перестановка строки вверх
+        // Меняем местами объекты в grid для каждого столбца
         for (int j = 0; j < grid.GetLength(1); j++)
         {
-            GameObject temp = grid[rowIndex, j]; // Сохраняем текущую строку
-            grid[rowIndex, j] = grid[rowIndex + 1, j]; // Перемещаем верхнюю строку в текущую позицию
-            grid[rowIndex + 1, j] = temp; // Помещаем сохраненную строку в верхнюю позицию
+            // Меняем местами объекты в grid
+            var temp = grid[rowIndex, j];
+            grid[rowIndex, j] = grid[rowIndex + 1, j];
+            grid[rowIndex + 1, j] = temp;
 
-            // Обновляем позиции GameObjects на сцене
-            grid[rowIndex, j].transform.position = new Vector2(j, rowIndex);
-            grid[rowIndex + 1, j].transform.position = new Vector2(j, rowIndex + 1);
+            // Обновляем позиции объектов
+            var tempPos = grid[rowIndex, j].transform.position;
+            grid[rowIndex, j].transform.position = grid[rowIndex + 1, j].transform.position;
+            grid[rowIndex + 1, j].transform.position = tempPos;
         }
+
+        // Обновляем layoutGroup, чтобы отразить новый порядок объектов
+        GetLayout();
     }
 
-    void CheckSolution() // В ПРОЦЕССЕ ДОРАБОТКИ
-    {
-        string correctSolutionString = ""; // Строка ответ (без пробелов) \/ СТРОГО 25 СИМВОЛОВ
-        string result = BuildResultString();
-        if (result == correctSolutionString)
+    /*    void CheckSolution() // В ПРОЦЕССЕ ДОРАБОТКИ
         {
-            if (attemptCounter == 0)
-                gridCreater.PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
-            else
-                gridCreater.CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
-        }
-        else
-        {
-            // Увеличение счетчика при неправильном решении
-            attemptCounter++;
-        }
-    }
-
-    string BuildResultString() // В ПРОЦЕССЕ ДОРАБОТКИ
-    {
-        string result = "";
-        for (int j = 0; j < gridCreater.grid.GetLength(1); j++) // Итерация по столбцам
-        {
-            for (int i = 0; i < gridCreater.grid.GetLength(0); i++) // Итерация по строкам
+            string correctSolutionString = ""; // Строка ответ (без пробелов) \/ СТРОГО 25 СИМВОЛОВ
+            string result = BuildResultString();
+            if (result == correctSolutionString)
             {
-                // Здесь предполагается, что у каждой ячейки есть компонент, содержащий символ этой ячейки.
-                Cell cellComponent = gridCreater.grid[i, j].GetComponent<Cell>();
-                if (cellComponent != null)
-                {
-                    // Предполагается, что у компонента Cell есть метод ToString() или свойство для получения символа
-                    result += cellComponent.ToString();
-                }
+                if (attemptCounter == 0)
+                    gridCreater.PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
+                else
+                    gridCreater.CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
+            }
+            else
+            {
+                // Увеличение счетчика при неправильном решении
+                attemptCounter++;
             }
         }
-        return result;
-    }
+
+        string BuildResultString() // В ПРОЦЕССЕ ДОРАБОТКИ
+        {
+            string result = "";
+            for (int j = 0; j < gridCreater.grid.GetLength(1); j++) // Итерация по столбцам
+            {
+                for (int i = 0; i < gridCreater.grid.GetLength(0); i++) // Итерация по строкам
+                {
+                    // Здесь предполагается, что у каждой ячейки есть компонент, содержащий символ этой ячейки.
+                    Cell cellComponent = gridCreater.grid[i, j].GetComponent<Cell>();
+                    if (cellComponent != null)
+                    {
+                        // Предполагается, что у компонента Cell есть метод ToString() или свойство для получения символа
+                        result += cellComponent.ToString();
+                    }
+                }
+            }
+            return result;
+        }*/
 }

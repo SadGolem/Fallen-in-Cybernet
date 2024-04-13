@@ -30,13 +30,15 @@ public class Cell : MonoBehaviour
             GetRow();
     }
 
+
+
     private void GetColumn()
     {
         UnSelected();
         
-        for (int row = 0; row < creater.grid.GetLength(0); row++)
+        for (int row = 0; row < controller.grid.GetLength(0); row++)
         {
-            columnCells.Add(creater.grid[row, position.Item2]);
+            columnCells.Add(controller.grid[row, position.Item2]);
         }
         Debug.Log("Столбец: " + position.Item2);
         foreach (GameObject cell in columnCells)
@@ -53,9 +55,9 @@ public class Cell : MonoBehaviour
     {
         UnSelected();
 
-        for (int col = 0; col < creater.grid.GetLength(1); col++)
+        for (int col = 0; col < controller.grid.GetLength(1); col++)
         {
-            rowCells.Add(creater.grid[position.Item1, col]);
+            rowCells.Add(controller.grid[position.Item1, col]);
         }
         Debug.Log("Строка: " + position.Item1);
         foreach (GameObject cell in rowCells)
@@ -78,9 +80,14 @@ public class Cell : MonoBehaviour
         {
             for (int col = 0; col < 5; col++)
             {
-                creater.grid[row, col].GetComponent<Cell>().selected.SetActive(false);
+                controller.grid[row, col].GetComponent<Cell>().selected.SetActive(false);
             }
         }
     }
+
+/*    public void UpdatePosition()
+    {
+        
+    }*/
 
 }
