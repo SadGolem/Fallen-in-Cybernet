@@ -11,6 +11,7 @@ public class GridCreater : MonoBehaviour
     public GameObject obj;
 
 
+
     [SerializeField] public string gridContent = "кэгсибняонреяэ_ондяйюгйни"; // яРПНЙЮ ХГ 25 ЯХЛБНКНБ \/ бмеярх ячдю гюьхтпнбюммсч ярпнйс
     [SerializeField] public string gridAnswer = "бняонкэгсиреяэ_ондяйюгйни"; // яРПНЙЮ ХГ 25 ЯХЛБНКНБ \/ бмеярх ячдю гюьхтпнбюммсч ярпнйс
 
