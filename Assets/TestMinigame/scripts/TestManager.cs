@@ -21,6 +21,7 @@ public class TestManager : MonoBehaviour
     [SerializeField] private GameObject endTest;
     [SerializeField] private GameObject endTestWindow;
     [SerializeField] private TextMeshProUGUI numberQuestion;
+    [SerializeField] private int indexTest = 0;
 
     private int indexQuestion = 0;
     private int correctAnwerCount = 0;
@@ -49,7 +50,7 @@ public class TestManager : MonoBehaviour
 
         foreach (var btn in buttonsInInspector)
             btn.onClick.AddListener(() => CheckAnswer(btn));
-        StartTest(0);
+        StartTest(indexTest);
     }
 
     public void StartTest(int indexTest)

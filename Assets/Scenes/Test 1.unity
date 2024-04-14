@@ -2953,7 +2953,7 @@ MonoBehaviour:
   endTest: {fileID: 1246925644}
   endTestWindow: {fileID: 951877702}
   numberQuestion: {fileID: 1935458098}
-  indexTest: 0
+  indexTest: 1
 --- !u!4 &1718643943
 Transform:
   m_ObjectHideFlags: 0
