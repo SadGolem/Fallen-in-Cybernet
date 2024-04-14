@@ -39,6 +39,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Cabinet 5.unity
     guid: a046bed6d07203e4e963125c59127c0f
   - enabled: 1
+    path: Assets/Scenes/Outside.unity
+    guid: c4206677bba41cd469d9e77342aba718
+  - enabled: 1
+    path: Assets/Scenes/AI home.unity
+    guid: 04830cbc80b337e40ac53fdf57f0aca2
+  - enabled: 1
     path: Assets/Scenes/EncryptionGame.unity
     guid: 85b3b8755bb0e0949b7b654bfadee5ff
   - enabled: 1
@@ -54,6 +60,12 @@ EditorBuildSettings:
     path: Assets/Scenes/EncryptionGame 4.unity
     guid: 439e15e6e7a09c140839b8cb9b222252
   - enabled: 1
+    path: Assets/Scenes/EncryptionGame 5.unity
+    guid: 4cb0e745a8fd7224aa914e2a3af257df
+  - enabled: 1
+    path: Assets/Scenes/EncryptionGame 6.unity
+    guid: 6436775a2d4d008448443edeba8f4740
+  - enabled: 1
     path: Assets/Scenes/Magic Square Tutorial.unity
     guid: d3f06dc6387352f4493a0d55fa4ec9a4
   - enabled: 1
@@ -62,4 +74,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Magic Square 1.unity
     guid: e53a79d9dcfc08c4683beb39d723fc8d
+  - enabled: 1
+    path: Assets/Scenes/AI home 1.unity
+    guid: f7d9b794e54aac54192ce07a9782b9de
+  - enabled: 1
+    path: Assets/Scenes/HDD.unity
+    guid: df7d098610607a442b074c3c12febdb1
   m_configObjects: {}

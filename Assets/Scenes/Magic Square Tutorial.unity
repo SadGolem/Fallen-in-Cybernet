@@ -2959,11 +2959,11 @@ MonoBehaviour:
     \u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0439 \u0437\u0430\u0434\u0430\u0447\u0435\u0439
     \u043C\u044B \u0440\u0430\u0441\u0441\u043C\u043E\u0442\u0440\u0438\u043C \u043C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u0438\u0439
     \u043A\u0432\u0430\u0434\u0440\u0430\u0442."
-  nameCharacter: "\u0418\u0442\u0430\u043D"
-  iconImage: {fileID: 21300000, guid: e44e588d180d7da40900de7071e9f662, type: 3}
+  nameCharacter: "\u0410\u0418"
+  iconImage: {fileID: 21300000, guid: 293ed1e281a34664ba64fb01e3118bda, type: 3}
   sound:
-  - {fileID: 8300000, guid: 3adf8523481590b4098254f3867e1def, type: 3}
-  - {fileID: 8300000, guid: 3c278439aaf24394f8dfa00e9e4c64ea, type: 3}
+  - {fileID: 8300000, guid: ac57c5e18f846fa4aae77d3210b8b57c, type: 3}
+  - {fileID: 8300000, guid: e5ae4bea770f5df44967020b4875b0b0, type: 3}
   indexDialog: 0
 --- !u!1 &708220444
 GameObject:
@@ -3416,11 +3416,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText:
   - "\u0412\u0442\u043E\u0440\u043E\u0435 \u043F\u043E\u043B\u0435 \u043F\u0443\u0441\u0442\u043E\u0435."
-  nameCharacter: "\u0418\u0442\u0430\u043D"
-  iconImage: {fileID: 21300000, guid: e44e588d180d7da40900de7071e9f662, type: 3}
+  nameCharacter: "\u0410\u0418"
+  iconImage: {fileID: 21300000, guid: 293ed1e281a34664ba64fb01e3118bda, type: 3}
   sound:
-  - {fileID: 8300000, guid: 3adf8523481590b4098254f3867e1def, type: 3}
-  - {fileID: 8300000, guid: 3c278439aaf24394f8dfa00e9e4c64ea, type: 3}
+  - {fileID: 8300000, guid: ac57c5e18f846fa4aae77d3210b8b57c, type: 3}
+  - {fileID: 8300000, guid: e5ae4bea770f5df44967020b4875b0b0, type: 3}
   indexDialog: 0
 --- !u!1 &952626418
 GameObject:
@@ -3899,11 +3899,11 @@ MonoBehaviour:
   dialogText:
   - "\u041F\u0435\u0440\u0435\u0434 \u0442\u043E\u0431\u043E\u0439 \u0434\u0432\u0430
     \u043F\u043E\u043B\u044F."
-  nameCharacter: "\u0418\u0442\u0430\u043D"
-  iconImage: {fileID: 21300000, guid: e44e588d180d7da40900de7071e9f662, type: 3}
+  nameCharacter: "\u0410\u0418"
+  iconImage: {fileID: 21300000, guid: 293ed1e281a34664ba64fb01e3118bda, type: 3}
   sound:
-  - {fileID: 8300000, guid: 3adf8523481590b4098254f3867e1def, type: 3}
-  - {fileID: 8300000, guid: 3c278439aaf24394f8dfa00e9e4c64ea, type: 3}
+  - {fileID: 8300000, guid: ac57c5e18f846fa4aae77d3210b8b57c, type: 3}
+  - {fileID: 8300000, guid: e5ae4bea770f5df44967020b4875b0b0, type: 3}
   indexDialog: 0
 --- !u!1 &1026564875
 GameObject:
@@ -5390,11 +5390,11 @@ MonoBehaviour:
     \u0438 \u0431\u0443\u0434\u0435\u0442 \u043F\u0435\u0440\u0432\u043E\u0439 \u0431\u0443\u043A\u0432\u043E\u0439
     \u0437\u0430\u043A\u043E\u0434\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0439
     \u0444\u0440\u0430\u0437\u044B."
-  nameCharacter: "\u0418\u0442\u0430\u043D"
-  iconImage: {fileID: 21300000, guid: e44e588d180d7da40900de7071e9f662, type: 3}
+  nameCharacter: "\u0410\u0418"
+  iconImage: {fileID: 21300000, guid: 293ed1e281a34664ba64fb01e3118bda, type: 3}
   sound:
-  - {fileID: 8300000, guid: 3adf8523481590b4098254f3867e1def, type: 3}
-  - {fileID: 8300000, guid: 3c278439aaf24394f8dfa00e9e4c64ea, type: 3}
+  - {fileID: 8300000, guid: ac57c5e18f846fa4aae77d3210b8b57c, type: 3}
+  - {fileID: 8300000, guid: e5ae4bea770f5df44967020b4875b0b0, type: 3}
   indexDialog: 0
 --- !u!1 &1503862685
 GameObject:
@@ -6355,11 +6355,11 @@ MonoBehaviour:
     \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043D\u043D\u043E
     \u043D\u043E\u043C\u0435\u0440\u0443 \u0438 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u044E
     \u0446\u0438\u0444\u0440 \u043D\u0430 \u043F\u0435\u0440\u0432\u043E\u043C \u043F\u043E\u043B\u0435."
-  nameCharacter: "\u0418\u0442\u0430\u043D"
-  iconImage: {fileID: 21300000, guid: e44e588d180d7da40900de7071e9f662, type: 3}
+  nameCharacter: "\u0410\u0418"
+  iconImage: {fileID: 21300000, guid: 293ed1e281a34664ba64fb01e3118bda, type: 3}
   sound:
-  - {fileID: 8300000, guid: 3adf8523481590b4098254f3867e1def, type: 3}
-  - {fileID: 8300000, guid: 3c278439aaf24394f8dfa00e9e4c64ea, type: 3}
+  - {fileID: 8300000, guid: ac57c5e18f846fa4aae77d3210b8b57c, type: 3}
+  - {fileID: 8300000, guid: e5ae4bea770f5df44967020b4875b0b0, type: 3}
   indexDialog: 0
 --- !u!1 &1679803230
 GameObject:
@@ -6556,11 +6556,11 @@ MonoBehaviour:
     \u0441\u043B\u0435\u0432\u0430 \u043D\u0430\u043F\u0440\u0430\u0432\u043E \u0441\u043D\u0438\u0437\u0443
     \u0432\u0432\u0435\u0440\u0445 \u043F\u043E \u043E\u0434\u043D\u043E\u043C\u0443
     \u0441\u0438\u043C\u0432\u043E\u043B\u0443."
-  nameCharacter: "\u0418\u0442\u0430\u043D"
-  iconImage: {fileID: 21300000, guid: e44e588d180d7da40900de7071e9f662, type: 3}
+  nameCharacter: "\u0410\u0418"
+  iconImage: {fileID: 21300000, guid: 293ed1e281a34664ba64fb01e3118bda, type: 3}
   sound:
-  - {fileID: 8300000, guid: 3adf8523481590b4098254f3867e1def, type: 3}
-  - {fileID: 8300000, guid: 3c278439aaf24394f8dfa00e9e4c64ea, type: 3}
+  - {fileID: 8300000, guid: ac57c5e18f846fa4aae77d3210b8b57c, type: 3}
+  - {fileID: 8300000, guid: e5ae4bea770f5df44967020b4875b0b0, type: 3}
   indexDialog: 0
 --- !u!1 &1727310565
 GameObject:
@@ -7185,11 +7185,11 @@ MonoBehaviour:
   dialogText:
   - "\u041D\u0430 \u043F\u0435\u0440\u0432\u043E\u043C \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u044B
     \u0446\u0438\u0444\u0440\u044B."
-  nameCharacter: "\u0418\u0442\u0430\u043D"
-  iconImage: {fileID: 21300000, guid: e44e588d180d7da40900de7071e9f662, type: 3}
+  nameCharacter: "\u0410\u0418"
+  iconImage: {fileID: 21300000, guid: 293ed1e281a34664ba64fb01e3118bda, type: 3}
   sound:
-  - {fileID: 8300000, guid: 3adf8523481590b4098254f3867e1def, type: 3}
-  - {fileID: 8300000, guid: 3c278439aaf24394f8dfa00e9e4c64ea, type: 3}
+  - {fileID: 8300000, guid: ac57c5e18f846fa4aae77d3210b8b57c, type: 3}
+  - {fileID: 8300000, guid: e5ae4bea770f5df44967020b4875b0b0, type: 3}
   indexDialog: 0
 --- !u!1 &1865153265
 GameObject:
