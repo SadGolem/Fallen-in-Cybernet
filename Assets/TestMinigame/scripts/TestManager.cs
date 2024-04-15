@@ -88,7 +88,23 @@ public class TestManager : MonoBehaviour
     {
         var wrongButtonsRandom = RandomElementsSelector<Button, TextMeshProUGUI>.SelectRandomFourElement(buttons);
         wrongButtonsRandom[0].Item2.text = questions[indexQuestion].Item2;
+        
         var wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers);
+        while (questions[indexQuestion].Item2 == wrongAnswersRandom[0])
+        {
+            GenerateListWrongAnswers();
+            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers);
+        }
+        while (questions[indexQuestion].Item2 == wrongAnswersRandom[1] || wrongAnswersRandom[1] == wrongAnswersRandom[0])
+        {
+            GenerateListWrongAnswers();
+            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers);
+        }
+        while (questions[indexQuestion].Item2 == wrongAnswersRandom[2] || wrongAnswersRandom[1] == wrongAnswersRandom[2])
+        {
+            GenerateListWrongAnswers();
+            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers);
+        }
         wrongButtonsRandom[1].Item2.text = wrongAnswersRandom[0];
         wrongButtonsRandom[2].Item2.text = wrongAnswersRandom[1];
         wrongButtonsRandom[3].Item2.text = wrongAnswersRandom[2];
