@@ -28,8 +28,8 @@ public class DialogController : MonoBehaviour
 
     private void Start()
     {
-        Invoke("WriteDialog", 2f);
-        
+        /*Invoke("WriteDialog", 2f);*/
+        WriteDialog();
         /*dialogSkipButton.onClick.AddListener(OnButtonClick);*/
     }
 
