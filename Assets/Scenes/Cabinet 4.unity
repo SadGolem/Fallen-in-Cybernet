@@ -647,8 +647,8 @@ MonoBehaviour:
   nameCharacter: "\u0421\u0435\u043A\u044E\u0440"
   iconImage: {fileID: 21300000, guid: c7b33c3e5f045644588090133f1d19a8, type: 3}
   sound:
-  - {fileID: 8300000, guid: d48b129b82539ec46b240bfa303c8a1c, type: 3}
-  - {fileID: 8300000, guid: f591b0011769a1c40801d27c138430af, type: 3}
+  - {fileID: 8300000, guid: 8309d2494e820a341834b17e87985483, type: 3}
+  - {fileID: 8300000, guid: bc32a6fe8cd95514ab97bc692cb1b276, type: 3}
   indexDialog: 0
 --- !u!1 &198519097
 GameObject:
@@ -987,8 +987,8 @@ MonoBehaviour:
   nameCharacter: "\u0421\u0435\u043A\u044E\u0440"
   iconImage: {fileID: 21300000, guid: c7b33c3e5f045644588090133f1d19a8, type: 3}
   sound:
-  - {fileID: 8300000, guid: d48b129b82539ec46b240bfa303c8a1c, type: 3}
-  - {fileID: 8300000, guid: f591b0011769a1c40801d27c138430af, type: 3}
+  - {fileID: 8300000, guid: 8309d2494e820a341834b17e87985483, type: 3}
+  - {fileID: 8300000, guid: bc32a6fe8cd95514ab97bc692cb1b276, type: 3}
   indexDialog: 0
 --- !u!4 &453037764
 Transform:
@@ -4283,8 +4283,8 @@ MonoBehaviour:
   nameCharacter: "\u0421\u0435\u043A\u044E\u0440"
   iconImage: {fileID: 21300000, guid: c7b33c3e5f045644588090133f1d19a8, type: 3}
   sound:
-  - {fileID: 8300000, guid: d48b129b82539ec46b240bfa303c8a1c, type: 3}
-  - {fileID: 8300000, guid: f591b0011769a1c40801d27c138430af, type: 3}
+  - {fileID: 8300000, guid: 8309d2494e820a341834b17e87985483, type: 3}
+  - {fileID: 8300000, guid: bc32a6fe8cd95514ab97bc692cb1b276, type: 3}
   indexDialog: 0
 --- !u!1 &1526700808
 GameObject:
