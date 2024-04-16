@@ -81,9 +81,6 @@ EditorBuildSettings:
     path: Assets/Scenes/HDD.unity
     guid: df7d098610607a442b074c3c12febdb1
   - enabled: 1
-    path: Assets/Scenes/CardGame.unity
-    guid: 34dd1181f93db3741bb0c466353b9018
-  - enabled: 1
     path: Assets/Scenes/HDD 1.unity
     guid: 2efaf547ac5048042a841272b94bb497
   - enabled: 1

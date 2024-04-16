@@ -5,14 +5,6 @@ public class CardDragger : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
 {
     private Vector2 originalPosition;
     private RectTransform rectTransform;
-    private Canvas canvas;
-    private Card card;
-
-    void Start()
-    {
-        card = GetComponent<Card>();
-        canvas = GetComponentInParent<Canvas>();
-    }
 
     private void Awake()
     {
@@ -38,11 +30,11 @@ public class CardDragger : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
         // В зависимости от того, куда карту бросили, вызываем соответствующий метод в CardGameController
         if (isChosenLeft)
         {
-            CardGameController.instance.ChooseCategory(card.CardData, true); // если бросили влево
+            CardGameController.instance.ChooseCategory(myCardData, true); // если бросили влево
         }
         else
         {
-            CardGameController.instance.ChooseCategory(card.CardData, false); // если бросили вправо
+            CardGameController.instance.ChooseCategory(myCardData, false); // если бросили вправо
         }
 
         // Возвращаем карту на исходную позицию
