@@ -4,6 +4,7 @@ using UnityEngine;
 public class CardData : ScriptableObject
 {
     public string answerText; // Текст ответа
-    public bool isCategoryA; // Принадлежит ли ответ категории A (если нет, то категории B)
+    public string nameAnswer; // Текст ответа
+    public bool isTrue; // Принадлежит ли ответ категории A (если нет, то категории B)
 }
 

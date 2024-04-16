@@ -4,9 +4,11 @@ public class AchievementControl : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [HideInInspector] public static bool isClickedOnAds;
+    [HideInInspector] public static bool isThreeOnARow;
 
    /* private Animation achievementAnimation;*/
     private bool achievementShown = false;
+    private bool achievementShownThreeOnARow = false;
 
     void Start()
     {
@@ -24,6 +26,19 @@ public class AchievementControl : MonoBehaviour
         if (!isClickedOnAds && !achievementShown)
         {
             string achievement = AchievementBase.doNotClickOnTheads.Item1;
+            achievementShown = true;
+            ShowAchievement();
+            AchievementShowed.Showed(achievement);
+        }
+    }
+
+
+    public void ThreeOnARow()
+    {
+        if (isThreeOnARow && !achievementShown)
+        {
+            string achievement = AchievementBase.doNotClickOnTheads.Item1;
+            achievementShownThreeOnARow = true;
             ShowAchievement();
             AchievementShowed.Showed(achievement);
         }
@@ -33,7 +48,6 @@ public class AchievementControl : MonoBehaviour
     {
         animator.SetBool("isShowing", true);
         /*achievementAnimation.Play();*/
-        achievementShown = true;
         Invoke("HideAchievement", 3f);
     }
 
