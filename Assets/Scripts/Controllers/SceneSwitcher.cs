@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public static class SceneSwitcher
 {
-    public static int sceneNumer = 1;
+    public static int sceneNumber = 1;
 
 
     public static void SwitchScene(int sceneToLoad)
@@ -13,7 +13,7 @@ public static class SceneSwitcher
 
     public static void SwitchScene()
     {
-        SceneManager.LoadScene(++sceneNumer); // Загрузить указанную сцену
+        SceneManager.LoadScene(++sceneNumber); // Загрузить указанную сцену
     }
 }
 

@@ -54,6 +54,7 @@ public class DataHolder : MonoBehaviour
         {
             string json = File.ReadAllText(filePath);
             SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+            SceneSwitcher.sceneNumber = saveData.sceneIndex;
             return saveData;
         }
         else

@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hypnosis Scene 1.unity
     guid: 601557b7053d0e04483208e89525f8da
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: e7bf217cad7565a45bba6cb9971ced00
   m_configObjects: {}
