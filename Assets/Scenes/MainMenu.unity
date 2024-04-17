@@ -2791,6 +2791,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1116131255}
+  - component: {fileID: 1116131256}
   m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
@@ -2823,6 +2824,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1116131256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116131254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5b87b2290f1db4cb5f6f8565b04487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: cb08d25026913d54f9a028a96beb731b, type: 2}
+  masterVolumeSlider: {fileID: 1208054341}
+  musicVolumeSlider: {fileID: 702855370}
+  voiceVolumeSlider: {fileID: 1506172663}
 --- !u!1 &1159306645
 GameObject:
   m_ObjectHideFlags: 0
