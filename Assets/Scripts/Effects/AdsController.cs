@@ -36,7 +36,6 @@ public class AdsController : MonoBehaviour
             yield return new WaitForSecondsRealtime(10f);
 
             
-            Debug.Log("yjdfz rjhenbyf");
             dialogWindow.transform.position += new Vector3(0, 1, 0);
             dialogWindow.SetActive(true);
             adsSpawner.SetActive(false);

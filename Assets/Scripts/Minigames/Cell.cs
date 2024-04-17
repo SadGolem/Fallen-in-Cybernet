@@ -25,9 +25,20 @@ public class Cell : MonoBehaviour
     {
         isColumn = !isColumn;
         if (isColumn)
+        {
             GetColumn();
+            if (!controller.isDoublePer) return;
+            {
+                isColumn = true;
+            }
+        }
         else
-            GetRow();
+        {
+            if (!controller.isDoublePer) return;
+            {
+                GetRow();
+            }
+        }
     }
 
 

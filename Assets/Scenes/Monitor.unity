@@ -6553,8 +6553,8 @@ RectTransform:
   - {fileID: 1139775402}
   - {fileID: 1599768587}
   - {fileID: 103940895}
-  - {fileID: 1518467624}
   - {fileID: 1475332259}
+  - {fileID: 1518467624}
   - {fileID: 1380967620}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -6969,7 +6969,7 @@ RectTransform:
   - {fileID: 74177903}
   - {fileID: 1930634921}
   m_Father: {fileID: 1392456313}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7981,6 +7981,10 @@ PrefabInstance:
     - target: {fileID: 2081366982, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.60703444
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083116618, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8551963744468960002, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
       propertyPath: m_IsActive
@@ -10502,13 +10506,12 @@ MonoBehaviour:
     \u043D\u0430 \u0438\u0445 \u0441\u043E\u043E\u0431\u0449\u0435\u043D\u0438\u044F
     \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435\u043C \u0432\u0438\u0434\u0430
     \u0430\u0442\u0430\u043A\u0438, \u043A\u043E\u0442\u043E\u0440\u0430\u044F \u0431\u044B\u043B\u0430
-    \u0441\u043E\u0432\u0435\u0440\u0448\u0435\u043D\u0430. \u041F\u0438\u0448\u0438
-    \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0442\u0430\u043A, \u043A\u0430\u043A
-    \u0443\u043A\u0430\u0437\u0430\u043D\u043E \u0432 \u043C\u0435\u0442\u043E\u0434\u0438\u0447\u043A\u0435,
-    \u043D\u043E \u0432 \u0415\u0414\u0418\u041D\u0421\u0422\u0412\u0415\u041D\u041D\u041E\u041C
-    \u0447\u0438\u0441\u043B\u0435. \u0415\u0441\u043B\u0438 \u0447\u0442\u043E,
-    \u0441\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0439 \u0443 \u0441\u0442\u0430\u0440\u0448\u0438\u0445!
-    \u0423\u0434\u0430\u0447\u0438!"
+    \u0441\u043E\u0432\u0435\u0440\u0448\u0435\u043D\u0430. \u0412\u0410\u0416\u041D\u041E!!!
+    \u041F\u0438\u0448\u0438 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0442\u043E\u0447\u043D\u043E
+    \u0442\u0430\u043A\u0436\u0435, \u043A\u0430\u043A \u0432 \u043C\u0435\u0442\u043E\u0434\u0438\u0447\u043A\u0435!
+    \u0415\u0441\u043B\u0438 \u0447\u0442\u043E \u0441\u043F\u0440\u0430\u0448\u0438\u0432\u0430\u0439
+    \u0443 \u043A\u0443\u0440\u0430\u0442\u043E\u0440\u043E\u0432! \u0418\u043B\u0438
+    \u0443 \u0441\u0432\u043E\u0438\u0445 \u0434\u0440\u0443\u0437\u0435\u0439! \u0423\u0434\u0430\u0447\u0438!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f46609424f13e494386fa23d74846dc8, type: 2}
   m_sharedMaterial: {fileID: 7759491303180081950, guid: f46609424f13e494386fa23d74846dc8, type: 2}
@@ -10535,7 +10538,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 41.65
+  m_fontSize: 41.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

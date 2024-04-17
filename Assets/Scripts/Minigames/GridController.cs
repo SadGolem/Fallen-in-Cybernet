@@ -15,7 +15,7 @@ public class GridController : MonoBehaviour
     public GameObject gridLayout;
     Transform[,] layoutGroup;
     private List<Cell> cells = new List<Cell>();
-    [SerializeField] private bool isDoublePer;
+    [SerializeField] public bool isDoublePer;
     [SerializeField] private GameObject winWindow;
 
     private void Awake()
