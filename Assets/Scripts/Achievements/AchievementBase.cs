@@ -3,6 +3,7 @@ public static class AchievementBase
 {
     static public (string, string) doNotClickOnTheads = ("Опытный", "Ни разу не кликнуть на рекламные баннеры");
     static public (string, string) neverUsedHints = ("Умничка", "Ни разу не использовать подсказки");
+    static public (string, string) theEnd = ("Конец", "Закончить игру");
     static public (string, string) takeFirstPractice = ("Дешифратор", "Пройти первое практическое задание");
     static public (string, string) takeExamOnFirstTry = ("Не лыком шит", "Пройти тест с первого раза");
 

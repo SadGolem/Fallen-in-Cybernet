@@ -18,13 +18,16 @@ public class AchievementControl : MonoBehaviour
     }
     void Start()
     {
-       /* achievementAnimation = animator.GetComponent<Animation>();
-        if (achievementAnimation)
-        {
-            achievementAnimation.playAutomatically = false;
-            achievementAnimation.Stop();
-            achievementAnimation.clip = achievementAnimation.GetClip("ahievement rainbow light");
-        }*/
+        /* achievementAnimation = animator.GetComponent<Animation>();
+         if (achievementAnimation)
+         {
+             achievementAnimation.playAutomatically = false;
+             achievementAnimation.Stop();
+             achievementAnimation.clip = achievementAnimation.GetClip("ahievement rainbow light");
+         }*/
+        if (SceneSwitcher.sceneNumber == 30)
+            TheEnd();
+
     }
 
     public void DoNotClickOnTheAds()
@@ -60,6 +63,14 @@ public class AchievementControl : MonoBehaviour
             ShowAchievement();
             AchievementShowed.Showed(achievement);
         }
+    }
+
+    public void TheEnd()
+    {
+            string achievement = AchievementBase.theEnd.Item1;
+            achievementClever = true;
+            ShowAchievement();
+            AchievementShowed.Showed(achievement);
     }
 
     public void ShowAchievement()
