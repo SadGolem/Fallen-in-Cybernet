@@ -8,13 +8,18 @@ using UnityEngine;
 public class HintMaker : MonoBehaviour
 {
     public TextMeshProUGUI hintm;
-
+    [HideInInspector] public int countUsedHints = 0;
     private List<List<string>> hintsPerPhrase = new List<List<string>>();
     private Dictionary<int, int> hintCountPerPhrase = new Dictionary<int, int>();
     [SerializeField] private List<string> hints = new List<string>();
 
     public bool AllHintsGiven { get; private set; } = false;
+    public static HintMaker instance;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         // Инициализируем подсказки для каждой фразы
@@ -43,7 +48,7 @@ public class HintMaker : MonoBehaviour
     public string GetHint()
     {
         int phraseIndex = Encrypter.Instance.GetSelectedPhraseIndex();
-
+        countUsedHints++;
         // Проверяем, есть ли уже для этой фразы какие-либо выданные подсказки
         if (!hintCountPerPhrase.ContainsKey(phraseIndex))
         {

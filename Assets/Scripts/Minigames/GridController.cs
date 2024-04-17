@@ -201,6 +201,11 @@ public class GridController : MonoBehaviour
                 gridCreater.CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
             Debug.Log("Решение правильное");
             winWindow.SetActive(true);
+
+            if (HintMaker.instance.countUsedHints < 1)
+            {
+                AchievementControl.instance.Clever();
+            }
         }
         else
         {
