@@ -33,6 +33,12 @@ public class CardDragger : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndD
     public void OnEndDrag(PointerEventData eventData)
     {
         // ќпредел€ем, куда "бросили" карту (влево или вправо)
+        float dragDistance = rectTransform.anchoredPosition.x - originalPosition.x;
+
+        if (Mathf.Abs(dragDistance) < 150f)
+        { rectTransform.anchoredPosition = originalPosition;
+            return;
+        }
         bool isChosenLeft = rectTransform.anchoredPosition.x < originalPosition.x;
 
         // ¬ зависимости от того, куда карту бросили, вызываем соответствующий метод в CardGameController
