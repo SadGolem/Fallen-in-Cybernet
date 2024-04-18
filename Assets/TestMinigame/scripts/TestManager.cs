@@ -21,6 +21,9 @@ public class TestManager : MonoBehaviour
     [SerializeField] private GameObject endTest;
     [SerializeField] private GameObject endTestWindow;
     [SerializeField] private TextMeshProUGUI numberQuestion;
+    [SerializeField] private TextMeshProUGUI resultTextMini;
+    [SerializeField] private GameObject nextSceneBtn;
+    [SerializeField] private GameObject restartSceneBtn;
     [SerializeField] private int indexTest = 0;
 
     private int indexQuestion = 0;
@@ -89,21 +92,21 @@ public class TestManager : MonoBehaviour
         var wrongButtonsRandom = RandomElementsSelector<Button, TextMeshProUGUI>.SelectRandomFourElement(buttons);
         wrongButtonsRandom[0].Item2.text = questions[indexQuestion].Item2;
         
-        var wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers);
+        var wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers, questions[indexQuestion].Item2);
         while (questions[indexQuestion].Item2 == wrongAnswersRandom[0])
         {
             GenerateListWrongAnswers();
-            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers);
+            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers, questions[indexQuestion].Item2);
         }
         while (questions[indexQuestion].Item2 == wrongAnswersRandom[1] || wrongAnswersRandom[1] == wrongAnswersRandom[0])
         {
             GenerateListWrongAnswers();
-            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers);
+            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers, questions[indexQuestion].Item2);
         }
         while (questions[indexQuestion].Item2 == wrongAnswersRandom[2] || wrongAnswersRandom[1] == wrongAnswersRandom[2])
         {
             GenerateListWrongAnswers();
-            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers);
+            wrongAnswersRandom = RandomElementsSelector<string>.SelectRandomThreeElement(wrongAnswers, questions[indexQuestion].Item2);
         }
         wrongButtonsRandom[1].Item2.text = wrongAnswersRandom[0];
         wrongButtonsRandom[2].Item2.text = wrongAnswersRandom[1];
@@ -205,6 +208,16 @@ public class TestManager : MonoBehaviour
         resultText.text = "Вопросов было: " + questions.Count.ToString() +  "\n" +
             "Правильных ответов: " + CalcAnswerRight().ToString() + "\n";
         resultText.text += AnswerNonRight();
+        if (CalcAnswerRight() < questions.Count/2)
+        {
+            resultTextMini.text = "Тест не пройден! Чтобы пройти тест необходмо набрать больше 50%";
+            restartSceneBtn.SetActive(true);
+        }
+        else
+        {
+            resultTextMini.text = "Тест пройден!";
+            restartSceneBtn.SetActive(false);
+        }
     }
 
 

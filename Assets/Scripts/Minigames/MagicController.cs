@@ -20,6 +20,7 @@ public class MagicController : MonoBehaviour
     [SerializeField] private bool isDoublePer;
     [SerializeField] private GameObject winWindow;
     [SerializeField] private TextMeshProUGUI answer;
+    [SerializeField] private bool isTutorial;
 
     private void Awake()
     {
@@ -96,13 +97,9 @@ public class MagicController : MonoBehaviour
 
         if (userAnswer == correctSolutionString)
         {
-            if (attemptCounter == 0)
-                gridCreater.PerfectSolution = true; // Флаг для выдачи достижения и окончания сцены
-            else
-                gridCreater.CorrectSolution = true; // Флаг для окончания сцены (я честно хз, как реализуется переход по сценам, нужна хелпа)
             Debug.Log("Решение правильное");
             winWindow.SetActive(true);
-            if (HintMaker.instance.countUsedHints < 1)
+            if (!isTutorial && HintMaker.instance.countUsedHints < 1)
             {
                 AchievementControl.instance.Clever();
             }

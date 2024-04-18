@@ -107,7 +107,7 @@ public class DialogController : MonoBehaviour
             sentencesText.text += letter;
             if (letter != ' ')
                 audioSource.PlayOneShot(RandomElementsSelector<AudioClip>.SelectRandomElement(characters[indexDialog].sound)); //нада сделать звук
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.08f);
         }
         isTyping = false;
         goBreakOut = false;

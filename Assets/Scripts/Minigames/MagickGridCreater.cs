@@ -38,7 +38,7 @@ public class MagickGridCreater : MonoBehaviour
 
         codePhrases.text = gridContent;
         CreateContent(cellPrefab, obj.transform, gridNumbers, gridContentArray); //создание грида с номерами
-        CreateContent(cellPrefabInput, objNum.transform, gridNumbers, gridContentNumbers); //создание грида с инпутами
+        CreateContent(cellPrefabInput, objNum.transform, "", gridContentNumbers); //создание грида с инпутами
     }
 
 

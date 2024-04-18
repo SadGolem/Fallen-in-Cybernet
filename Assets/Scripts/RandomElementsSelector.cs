@@ -16,21 +16,33 @@ public static partial class RandomElementsSelector<T>
         return list[randomIndex];
     }
 
-    public static List<T> SelectRandomThreeElement(List<T> list)
+    public static List<T> SelectRandomThreeElement(List<T> list, string rightAnswer)
     {
         if (list == null || list.Count == 0)
         {
             return default(List<T>);
         }
+        List<T> newList = new List<T>();
+        newList.AddRange(list);
 
-        int randomIndex = random.Next(0, list.Count);
-        int randomIndex2 = random.Next(0, list.Count);
-        int randomIndex3 = random.Next(0, list.Count);
+        for (int i = newList.Count - 1; i >= 0; i--)
+        {
+            if (newList[i].ToString() == rightAnswer)
+                newList.RemoveAt(i);
+        }
+        
+        int randomIndex = random.Next(0, newList.Count - 1);
+        var item1 = newList[randomIndex];
+        newList.RemoveAt(randomIndex);
+        int randomIndex2 = random.Next(0, newList.Count - 2);
+        var item2 = newList[randomIndex2];
+        newList.RemoveAt(randomIndex2);
+        int randomIndex3 = random.Next(0, newList.Count - 3);
 
         var result = new List<T>();
-        result.Add(list[randomIndex]);
-        result.Add(list[randomIndex2]);
-        result.Add(list[randomIndex3]);
+        result.Add(item1);
+        result.Add(item2);
+        result.Add(newList[randomIndex3]);
         return result;
     }
 

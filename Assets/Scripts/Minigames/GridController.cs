@@ -17,6 +17,7 @@ public class GridController : MonoBehaviour
     private List<Cell> cells = new List<Cell>();
     [SerializeField] public bool isDoublePer;
     [SerializeField] private GameObject winWindow;
+    [SerializeField] private bool isTutorial;
 
     private void Awake()
     {
@@ -202,7 +203,7 @@ public class GridController : MonoBehaviour
             Debug.Log("Решение правильное");
             winWindow.SetActive(true);
 
-            if (HintMaker.instance.countUsedHints < 1)
+            if (!isTutorial && HintMaker.instance.countUsedHints < 1)
             {
                 AchievementControl.instance.Clever();
             }

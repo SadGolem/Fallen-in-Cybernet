@@ -29,6 +29,16 @@ public class GameController : MonoBehaviour
         LoadScene();
     }
 
+    public void RestartScene()
+    {
+        Scene activeScene = SceneManager.GetActiveScene();
+
+        // Получаем индекс активной сцены
+        int activeSceneIndex = activeScene.buildIndex;
+
+        // Загружаем сцену по ее индексу
+        SceneManager.LoadScene(activeSceneIndex);
+    }
 
 
 }

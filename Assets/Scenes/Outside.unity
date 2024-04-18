@@ -5724,7 +5724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText:
   - ...
-  nameCharacter: "\u0410\u0418"
+  nameCharacter: 
   iconImage: {fileID: 21300000, guid: 1469f7be0d0932c4989caad1cd49f636, type: 3}
   sound:
   - {fileID: 8300000, guid: f591b0011769a1c40801d27c138430af, type: 3}

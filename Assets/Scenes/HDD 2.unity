@@ -394,42 +394,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characters:
-  - {fileID: 186554002}
+  - {fileID: 1685958771}
   - {fileID: 2034445497}
+  - {fileID: 292108455}
+  - {fileID: 545872446}
+  - {fileID: 186554002}
   - {fileID: 714269953}
+  - {fileID: 746095128}
   - {fileID: 1703011398}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1653578626}
+  - {fileID: 335730107}
   iconImage: {fileID: 1422205189}
   _gameController: {fileID: 1321782715}
   _dialogWindow: {fileID: 85307965}
@@ -523,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6125605199242095911, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6125605199242095911, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -628,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8551963745374799516, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8551963745374799516, guid: 2bdb96c344ea3e047b32307efa271084, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1046,7 +1020,7 @@ MonoBehaviour:
   dialogText:
   - "\u041C\u043E\u043B\u043E\u0434\u0435\u0446, \u0438\u0433\u0440\u043E\u043A!
     \u0422\u0430\u043A \u0434\u0435\u0440\u0436\u0430\u0442\u044C."
-  nameCharacter: "\u0421\u0435\u043A\u044E\u0440"
+  nameCharacter: "\u0421\u0435\u043A\u044A\u044E\u0440"
   iconImage: {fileID: 21300000, guid: c7b33c3e5f045644588090133f1d19a8, type: 3}
   sound:
   - {fileID: 8300000, guid: 8309d2494e820a341834b17e87985483, type: 3}
@@ -1610,7 +1584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5945082253438039635, guid: 8c5326bac126ead4787095b2bedb10e1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5945082253438039635, guid: 8c5326bac126ead4787095b2bedb10e1, type: 3}
       propertyPath: m_AnchorMax.x

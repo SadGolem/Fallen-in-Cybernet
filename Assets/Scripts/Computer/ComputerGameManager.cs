@@ -84,7 +84,10 @@ public class ComputerGameManager : MonoBehaviour
     }
     private void CheckAnswer()
     {
-        if (inputText.text == correctAnswer && !correctAnswers.Contains(correctAnswer))
+        string correctSolutionString = correctAnswer.Replace(" ", "").ToLower();
+        string userAnswer = inputText.text.Replace(" ", "").ToLower();
+
+        if (userAnswer == correctSolutionString)
         {
             correctAnswers.Add(correctAnswer);
             SpawnerMessage();
