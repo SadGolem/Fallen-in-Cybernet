@@ -1035,7 +1035,7 @@ RectTransform:
   m_Children:
   - {fileID: 1549278089}
   m_Father: {fileID: 1898275092}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1512,6 +1512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 702855371}
+  - component: {fileID: 702855372}
   - component: {fileID: 702855370}
   m_Layer: 5
   m_Name: Slider - Music
@@ -1570,7 +1571,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 702855372}
+        m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &702855371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1594,6 +1607,22 @@ RectTransform:
   m_AnchoredPosition: {x: -144.65305, y: 3.2474365}
   m_SizeDelta: {x: 437.69, y: 63.3748}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &702855372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702855369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5b87b2290f1db4cb5f6f8565b04487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: cb08d25026913d54f9a028a96beb731b, type: 2}
+  masterVolumeSlider: {fileID: 1208054341}
+  musicVolumeSlider: {fileID: 702855370}
+  voiceVolumeSlider: {fileID: 1506172663}
 --- !u!1 &733023089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2998,6 +3027,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1208054342}
+  - component: {fileID: 1208054343}
   - component: {fileID: 1208054341}
   m_Layer: 5
   m_Name: Slider - Master
@@ -3056,7 +3086,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1208054343}
+        m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
+        m_MethodName: SetMasterVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1208054342
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3080,6 +3122,22 @@ RectTransform:
   m_AnchoredPosition: {x: -144.65305, y: 70.913055}
   m_SizeDelta: {x: 437.69, y: 63.3748}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1208054343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208054340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5b87b2290f1db4cb5f6f8565b04487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: cb08d25026913d54f9a028a96beb731b, type: 2}
+  masterVolumeSlider: {fileID: 1208054341}
+  musicVolumeSlider: {fileID: 702855370}
+  voiceVolumeSlider: {fileID: 1506172663}
 --- !u!1 &1228932309
 GameObject:
   m_ObjectHideFlags: 0
@@ -4176,6 +4234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506172664}
+  - component: {fileID: 1506172665}
   - component: {fileID: 1506172663}
   m_Layer: 5
   m_Name: Slider - Voice
@@ -4234,7 +4293,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1506172665}
+        m_TargetAssemblyTypeName: AudioSettingsManager, Assembly-CSharp
+        m_MethodName: SetVoiceVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &1506172664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4251,13 +4322,29 @@ RectTransform:
   - {fileID: 473573975}
   - {fileID: 214987733}
   m_Father: {fileID: 1898275092}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -144.65305, y: -64.6}
   m_SizeDelta: {x: 437.69, y: 63.3748}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1506172665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506172662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5b87b2290f1db4cb5f6f8565b04487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: cb08d25026913d54f9a028a96beb731b, type: 2}
+  masterVolumeSlider: {fileID: 1208054341}
+  musicVolumeSlider: {fileID: 702855370}
+  voiceVolumeSlider: {fileID: 1506172663}
 --- !u!1 &1525549553
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,7 +5344,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041E\u0431\u0449\u0430\u044F \u0433\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C"
+  m_text: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 015db13ae9d91184686e4ac74b610819, type: 2}
   m_sharedMaterial: {fileID: 5341881630609651981, guid: 015db13ae9d91184686e4ac74b610819, type: 2}
@@ -5284,7 +5371,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.2
+  m_fontSize: 38.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5694,8 +5781,8 @@ Transform:
   m_Children:
   - {fileID: 1841144696}
   - {fileID: 874993582}
-  - {fileID: 424677686}
   - {fileID: 1506172664}
+  - {fileID: 424677686}
   m_Father: {fileID: 1116131255}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6369,7 +6456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041E\u0431\u0449\u0430\u044F \u0433\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C"
+  m_text: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 015db13ae9d91184686e4ac74b610819, type: 2}
   m_sharedMaterial: {fileID: 5341881630609651981, guid: 015db13ae9d91184686e4ac74b610819, type: 2}
@@ -6396,7 +6483,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.2
+  m_fontSize: 39.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
