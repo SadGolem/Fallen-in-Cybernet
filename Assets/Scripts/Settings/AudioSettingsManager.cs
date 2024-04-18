@@ -38,17 +38,17 @@ public class AudioSettingsManager : MonoBehaviour
     //}
     public void SetMasterVolume(float value)
     {
-        audioMixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
+        audioMixer.SetFloat("Master", Mathf.Log10(value) * 20);
     }
 
     public void SetMusicVolume(float value)
     {
-        audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+        audioMixer.SetFloat("Music", Mathf.Log10(value) * 20);
     }
 
     public void SetVoiceVolume(float value)
     {
-        audioMixer.SetFloat("VoiceVolume", Mathf.Log10(value) * 20);
+        audioMixer.SetFloat("Voice", Mathf.Log10(value) * 20);
     }
 
     public void SaveSettings()
