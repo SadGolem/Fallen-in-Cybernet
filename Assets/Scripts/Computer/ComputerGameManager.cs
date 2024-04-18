@@ -92,6 +92,7 @@ public class ComputerGameManager : MonoBehaviour
             correctAnswers.Add(correctAnswer);
             SpawnerMessage();
             correct++;
+            inputText.text = "";
         }
         else
         {
@@ -103,6 +104,7 @@ public class ComputerGameManager : MonoBehaviour
         {
             winWindows.SetActive(true);
         }
+
     }
 
 }
