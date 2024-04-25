@@ -949,6 +949,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1658414093}
     m_Modifications:
+    - target: {fileID: 70953082614818238, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2415028153897270892, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2769885180349923514, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150730784069963954, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588324347896197331, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6125605199242095908, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
       propertyPath: m_Name
       value: PauseMenu
@@ -995,6 +1015,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6125605199242095911, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125605199807876706, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205803092290634705, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590907100578783143, guid: 0d94081197b7f45489356e6727412ecb, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -9,7 +9,7 @@ public class AudioSettingsManager : MonoBehaviour
     public Slider masterVolumeSlider;
     public Slider musicVolumeSlider;
     public Slider voiceVolumeSlider;
-    private const float defaultVolume = 0.3f; // Базовые настройки громкости
+    private const float defaultVolume = 0.9f; // Базовые настройки громкости
     private string settingsFilePath;
 
     private void Awake()
@@ -31,24 +31,19 @@ public class AudioSettingsManager : MonoBehaviour
         voiceVolumeSlider.onValueChanged.AddListener(SetVoiceVolume);
     }
 
-    //public void SetVolume(string parameterName, float value)
-    //{
-    //    // Конвертация ползунка в значение громкости
-    //    audioMixer.SetFloat(parameterName, Mathf.Log10(value) * 20);
-    //}
     public void SetMasterVolume(float value)
     {
-        audioMixer.SetFloat("Master", Mathf.Log10(value) * 20);
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
     }
 
     public void SetMusicVolume(float value)
     {
-        audioMixer.SetFloat("Music", Mathf.Log10(value) * 20);
+        audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
     }
 
     public void SetVoiceVolume(float value)
     {
-        audioMixer.SetFloat("Voice", Mathf.Log10(value) * 20);
+        audioMixer.SetFloat("VoiceVolume", Mathf.Log10(value) * 20);
     }
 
     public void SaveSettings()
@@ -65,33 +60,6 @@ public class AudioSettingsManager : MonoBehaviour
         string json = JsonUtility.ToJson(settings);
         File.WriteAllText(settingsFilePath, json);
     }
-
-    //public void LoadSettings()
-    //{
-    //    // Загрузка настроек, если файл существует
-    //    if (File.Exists(settingsFilePath))
-    //    {
-    //        string json = File.ReadAllText(settingsFilePath);
-    //        AudioSettings settings = JsonUtility.FromJson<AudioSettings>(json);
-
-    //        masterVolumeSlider.value = settings.masterVolume;
-    //        musicVolumeSlider.value = settings.musicVolume;
-    //        voiceVolumeSlider.value = settings.voiceVolume;
-
-    //        SetVolume("MasterVolume", settings.masterVolume);
-    //        SetVolume("MusicVolume", settings.musicVolume);
-    //        SetVolume("VoiceVolume", settings.voiceVolume);
-    //    }
-    //    else
-    //    {
-    //        // Установка значений по умолчанию, если файл настроек не найден
-    //        masterVolumeSlider.value = defaultVolume;
-    //        musicVolumeSlider.value = defaultVolume;
-    //        voiceVolumeSlider.value = defaultVolume;
-
-    //        SaveSettings(); // Сохранение стандартных настроек
-    //    }
-    //}
 
     public void LoadSettings()
     {
