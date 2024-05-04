@@ -30,6 +30,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Monitor.unity
     guid: 3dd74b4cec7caad499dd9f2e70c24735
   - enabled: 1
+    path: Assets/Scenes/Cabinet 4 5.unity
+    guid: ab683d5815aefee478afa5eeb35c8a8e
+  - enabled: 1
+    path: Assets/Scenes/CardGame fist act.unity
+    guid: c0935b0ece3f0de49af8a965cd13595a
+  - enabled: 1
     path: Assets/Scenes/Cabinet 4.unity
     guid: 4efab7a0b3026aa40b721e4c23cd9f74
   - enabled: 1
