@@ -22,37 +22,16 @@ public class DialogController : MonoBehaviour
     
     private int indexDialog = 0;
 
-    private bool isTyping;
     private bool goBreakOut;
     public bool _isReadingToGoNextScene = true;
 
     private void Start()
     {
-        /*Invoke("WriteDialog", 2f);*/
         WriteDialog();
-        /*dialogSkipButton.onClick.AddListener(OnButtonClick);*/
     }
 
     public void SkipDialog()
     {
-
-        /*if (isTyping)
-        {
-            *//*if (SceneManager.sceneCount == 1 || SceneManager.sceneCount == 2) return;*//*
-            StopCoroutine(TypeSentence(characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog], sentencesText));
-            sentencesText.text = "";
-            sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
-            isTyping = false;
-        }
-        else
-        {
-            StopAllCoroutines();
-            sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
-            goBreakOut = true;
-                IndexDialog++;
-                WriteDialog();
-
-        }*/
         if (indexDialog <= characters.Count - 1)
         {
             StopAllCoroutines();
@@ -67,10 +46,10 @@ public class DialogController : MonoBehaviour
                 sentencesText.text = characters[indexDialog].dialogText[characters[indexDialog].indexDialog];
             }
         }
+
         if (indexDialog == characters.Count)
         {
-           /* if (sentencesText.text == characters[indexDialog].dialogText[characters[indexDialog].indexDialog])*/
-                SwapScene();
+            SwapScene();
         }
     }
 
@@ -78,7 +57,6 @@ public class DialogController : MonoBehaviour
     {
         nameText.text = name;
         iconImage.sprite = icon;
-        /*this.audioClip = audioClip;*/
     }
 
     private void WriteDialog()
@@ -92,14 +70,12 @@ public class DialogController : MonoBehaviour
 
     private void TextDialog(string text, string name, Sprite image, List<AudioClip> sound)
     {
-        SetCharacter(name, image/*, sound*/);
+        SetCharacter(name, image);
         StartCoroutine(TypeSentence(text, sentencesText));
     }
 
     private IEnumerator TypeSentence(string sentence, TextMeshProUGUI texBox)
     {
-        
-        isTyping = true;
         sentencesText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
@@ -109,7 +85,6 @@ public class DialogController : MonoBehaviour
                 audioSource.PlayOneShot(RandomElementsSelector<AudioClip>.SelectRandomElement(characters[indexDialog].sound)); //нада сделать звук
             yield return new WaitForSeconds(0.08f);
         }
-        isTyping = false;
         goBreakOut = false;
     }
 
@@ -125,8 +100,8 @@ public class DialogController : MonoBehaviour
     public void SetDialogIndex(int index)
     {
         indexDialog = index;
-        // Тут может потребоваться вызвать другие методы, чтобы обновить UI или продолжить диалог с нового места
     }
+
     public int GetCurrentDialogIndex()
     {
         // Возвращаем текущий индекс диалога

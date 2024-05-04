@@ -20,11 +20,6 @@ public class AudioSettingsManager : MonoBehaviour
 
     private void Start()
     {
-        //// Установка начальных значений ползунков и слушателей
-        //masterVolumeSlider.onValueChanged.AddListener(value => SetVolume("MasterVolume", value));
-        //musicVolumeSlider.onValueChanged.AddListener(value => SetVolume("MusicVolume", value));
-        //voiceVolumeSlider.onValueChanged.AddListener(value => SetVolume("VoiceVolume", value));
-
         // Добавление обработчиков событий
         masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
         musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
