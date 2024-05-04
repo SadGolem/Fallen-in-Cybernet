@@ -35,26 +35,26 @@ public class DialogController : MonoBehaviour
 
     public void SkipDialog()
     {
-        if (indexDialog != characters.Count - 1)
-        {
-            /*if (isTyping)
-            {
-                *//*if (SceneManager.sceneCount == 1 || SceneManager.sceneCount == 2) return;*//*
-                StopCoroutine(TypeSentence(characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog], sentencesText));
-                sentencesText.text = "";
-                sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
-                isTyping = false;
-            }
-            else
-            {
-                StopAllCoroutines();
-                sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
-                goBreakOut = true;
-                    IndexDialog++;
-                    WriteDialog();
-                
-            }*/
 
+        /*if (isTyping)
+        {
+            *//*if (SceneManager.sceneCount == 1 || SceneManager.sceneCount == 2) return;*//*
+            StopCoroutine(TypeSentence(characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog], sentencesText));
+            sentencesText.text = "";
+            sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
+            isTyping = false;
+        }
+        else
+        {
+            StopAllCoroutines();
+            sentencesText.text = characters[IndexDialog].dialogText[characters[IndexDialog].indexDialog];
+            goBreakOut = true;
+                IndexDialog++;
+                WriteDialog();
+
+        }*/
+        if (indexDialog <= characters.Count - 1)
+        {
             StopAllCoroutines();
             if (sentencesText.text == characters[indexDialog].dialogText[characters[indexDialog].indexDialog])
             {
@@ -67,9 +67,9 @@ public class DialogController : MonoBehaviour
                 sentencesText.text = characters[indexDialog].dialogText[characters[indexDialog].indexDialog];
             }
         }
-        else
+        if (indexDialog == characters.Count)
         {
-            if (!isTyping)
+           /* if (sentencesText.text == characters[indexDialog].dialogText[characters[indexDialog].indexDialog])*/
                 SwapScene();
         }
     }
