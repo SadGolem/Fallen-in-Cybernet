@@ -33,7 +33,6 @@ public class MagicController : MonoBehaviour
         grid = gridCreater.gridContentArray;
         gridNumbers = gridCreater.gridContentNumbers;
         GetLayout();
-        /*string s = "";*/
         int rows = grid.GetLength(0);
         int cols = grid.GetLength(1);
         for (int i = 0; i < rows; i++)
@@ -44,12 +43,9 @@ public class MagicController : MonoBehaviour
                 if (index < gridLayout.transform.childCount)
                 {
                     layoutGroup[i, j] = gridLayout.transform.GetChild(index);
-                    /*s += layoutGroup[i, j].GetComponent<Cell>().position + " ";*/
-
                 }
 
             }
-            /*s += "\n";*/
         }
         /*Debug.Log(s);*/
 
@@ -73,11 +69,9 @@ public class MagicController : MonoBehaviour
                     layoutGroup[i, j] = grid[i, j].transform;
                     layoutGroup[i, j].GetComponent<Cell>().position = (i, j);
                     /*s += layoutGroup[i, j].GetComponent<Cell>().position + " ";*/
-
                 }
 
             }
-            /*s += "\n";*/
         }
         /*Debug.Log(s);*/
 
@@ -87,7 +81,7 @@ public class MagicController : MonoBehaviour
         CheckSolution();
     }
 
-    void CheckSolution() // ¬ œ–Œ÷≈——≈ ƒŒ–¿¡Œ“ »
+    void CheckSolution() 
     {
         string correctSolutionString = gridCreater.gridAnswer;
         correctSolutionString = correctSolutionString.Replace(" ", "").ToLower();
