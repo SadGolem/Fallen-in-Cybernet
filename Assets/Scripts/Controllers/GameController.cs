@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     {
         _dataHolder = DataHolder.instance;
         Time.timeScale = 1.0f;
-        SceneSwitcher.sceneNumber = 0;
+        //SceneSwitcher.sceneNumber = 0;
     }
 
     public void SwitchScene()
