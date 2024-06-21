@@ -17,6 +17,10 @@ public class ComputerGameManager : MonoBehaviour
     [SerializeField] private GameObject prefabUser;
     [SerializeField] private GameObject parent;
     [SerializeField] private GameObject winWindows;
+    [SerializeField] private GameObject hints;
+    [SerializeField] private List<TextMeshProUGUI> hintsList;
+    [HideInInspector] private List<string> hintsListString = new List<string>();
+    [SerializeField] private List<string> hintsListStringIncorect;
     [SerializeField] private Animator animator;
     [SerializeField] private AudioClip newMessage;
     [SerializeField] private AudioClip incorrectAnswer;
@@ -27,6 +31,7 @@ public class ComputerGameManager : MonoBehaviour
     private int indexUse = 0;
     private static int correct;
     private int count;
+    private int incorrectAnswerCount = 0;
     private List<string> correctAnswers = new List<string>();
 
     void GetAllMessage()
@@ -40,6 +45,10 @@ public class ComputerGameManager : MonoBehaviour
     {
         GetAllMessage();
         SpawnerMessage();
+        foreach (var hint in hintsList)
+            hintsListString.Add(hint.text);
+        ConstructHints();
+        HideHints();
     }
 
     void SpawnerMessage()
@@ -90,11 +99,20 @@ public class ComputerGameManager : MonoBehaviour
             SpawnerMessage();
             correct++;
             inputText.text = "";
+            incorrectAnswerCount = 0;
+            ConstructHints();
+            HideHints();
         }
         else
         {
             animator.Play("not right anwer text anim", 0,0.1f);
             audioSource.PlayOneShot(incorrectAnswer);
+            incorrectAnswerCount++;
+
+            if (incorrectAnswerCount > 2)
+            {
+                ShowHints();
+            }
         }
 
         if (correct == count - 1)
@@ -102,6 +120,44 @@ public class ComputerGameManager : MonoBehaviour
             winWindows.SetActive(true);
         }
 
+    }
+
+    private void ShowHints()
+    {
+        hints.SetActive(true);
+    }
+
+    private void ConstructHints()
+    {
+        int a = 0;
+        List<string> s = new List<string>();
+
+        System.Random rnd = new System.Random();
+        for (int i = 0; i < 2; i++)
+        {
+            int index = rnd.Next(hintsListStringIncorect.Count);
+
+            string st = hintsListStringIncorect[index];
+            while (st == correctAnswer)
+            {
+                st = hintsListStringIncorect[index++];
+            }
+
+            s.Add(st);
+        }
+        s.Add(correctAnswer);
+        
+        s = s.OrderBy(x => rnd.Next()).ToList();
+
+        foreach (var hint in hintsList)
+        {
+            hint.text = s.ElementAt(a++);
+        }
+    }
+
+    private void HideHints()
+    {
+        hints.SetActive(false);
     }
 
 }
