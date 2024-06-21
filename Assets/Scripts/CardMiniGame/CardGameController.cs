@@ -57,8 +57,6 @@ public class CardGameController : MonoBehaviour
             scoreCategoryA++;
             currentCard.gameObject.SetActive(false);
             SpawnNewCard();
-
-            
         }
         else
         {
@@ -78,7 +76,6 @@ public class CardGameController : MonoBehaviour
                 loseWindow.SetActive(true);
             }
             SpawnNewCard();
-
         }
 
         // Удалить ответ из списка доступных ответов

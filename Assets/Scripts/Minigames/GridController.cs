@@ -41,7 +41,6 @@ public class GridController : MonoBehaviour
                 {
                     layoutGroup[i, j] = gridLayout.transform.GetChild(index);
                     /*s += layoutGroup[i, j].GetComponent<Cell>().position + " ";*/
-
                 }
 
             }
@@ -58,7 +57,6 @@ public class GridController : MonoBehaviour
         int rows = grid.GetLength(0);
         int cols = grid.GetLength(1);
         layoutGroup = new Transform[rows, cols];
-        /*string s = "";*/
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
@@ -68,15 +66,11 @@ public class GridController : MonoBehaviour
                 {
                     layoutGroup[i, j] = grid[i, j].transform;
                     layoutGroup[i, j].GetComponent<Cell>().position = (i, j);
-                    /*s += layoutGroup[i, j].GetComponent<Cell>().position + " ";*/
 
                 }
-
             }
-            /*s += "\n";*/
         }
         /*Debug.Log(s);*/
-
     }
     public void MoveColumnLeft()
     {
@@ -100,7 +94,6 @@ public class GridController : MonoBehaviour
                 grid[i, columnIndex - 1].transform.position = tempPos;
             }
         }
-
         // Обновляем layoutGroup, чтобы отразить новый порядок объектов
         GetLayout();
     }

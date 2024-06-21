@@ -5,13 +5,12 @@ public class GameController : MonoBehaviour
 {
     private DataHolder _dataHolder;
     private int _sceneIndex = 1;
-    
 
     private void Start()
     {
         _dataHolder = DataHolder.instance;
         Time.timeScale = 1.0f;
-        SceneSwitcher.sceneNumber = 0;
+        //SceneSwitcher.sceneNumber = 0;
     }
 
     public void SwitchScene()
@@ -21,7 +20,6 @@ public class GameController : MonoBehaviour
 
     private void LoadScene()
     {
-        /* _sceneIndex = _dataHolder.LoadDialogIndexAndScene();*/ // Загрузка сцены 
         SceneManager.LoadScene(_sceneIndex);
     }
 
@@ -40,6 +38,4 @@ public class GameController : MonoBehaviour
         // Загружаем сцену по ее индексу
         SceneManager.LoadScene(activeSceneIndex);
     }
-
-
 }

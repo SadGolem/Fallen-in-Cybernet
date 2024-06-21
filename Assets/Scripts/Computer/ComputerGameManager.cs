@@ -62,9 +62,6 @@ public class ComputerGameManager : MonoBehaviour
         //удаляем уже использованное сообщение
         users.RemoveAt(index);
         audioSource.PlayOneShot(newMessage);
-
-
-        //здесь реализовать рандомную отправку писем
     }
 
     public void ShowMessage(User user)
