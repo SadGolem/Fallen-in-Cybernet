@@ -28,6 +28,12 @@ public class GameController : MonoBehaviour
         LoadScene();
     }
 
+    public void StartNewGame()
+    {
+        SceneSwitcher.sceneNumber = _sceneIndex = 1;
+        LoadScene();
+    }
+
     public void RestartScene()
     {
         Scene activeScene = SceneManager.GetActiveScene();

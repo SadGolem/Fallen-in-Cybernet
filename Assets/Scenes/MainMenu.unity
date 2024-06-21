@@ -6256,7 +6256,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6103425}
         m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: StartScene
+        m_MethodName: StartNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
