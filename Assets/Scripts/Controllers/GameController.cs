@@ -44,4 +44,9 @@ public class GameController : MonoBehaviour
         // Загружаем сцену по ее индексу
         SceneManager.LoadScene(activeSceneIndex);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
